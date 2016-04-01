@@ -11,43 +11,49 @@
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/statemanet"
+        android:id="@+id/main_btn_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="runStatement"
         android:text="运行Lua脚本语句" />
 
     <Button
-        android:id="@+id/lua_file"
+        android:id="@+id/main_btn_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="runFile"
         android:text="运行Lua脚本文件" />
 
     <Button
-        android:id="@+id/callAndroid"
+        android:id="@+id/main_btn_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="callAndroidAPI"
         android:text="调用 Android API" />
    
      <Button
-        android:id="@+id/launchSettings"
+        android:id="@+id/main_btn_4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="launchSetting"
         android:text="启动设置" />
      <Button
-        android:id="@+id/launchActivity"
+        android:id="@+id/main_btn_5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="launchActivity"
         android:text="启动Activity" />
      <Button
-        android:id="@+id/addButton"
+        android:id="@+id/main_btn_6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="addButton"
         android:text="添加Button" />
+    <Button
+        android:id="@+id/main_btn_7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="addButton"
+        android:text="输出log" />
 
 </LinearLayout>

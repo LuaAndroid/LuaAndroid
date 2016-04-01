@@ -4,24 +4,27 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
 import org.keplerproject.luajava.LuaException;
 import org.keplerproject.luajava.LuaObject;
 import org.keplerproject.luajava.LuaState;
 import org.keplerproject.luajava.LuaStateFactory;
 import org.keplerproject.luajava.ObjPrint;
 import org.keplerproject.luajava.Printable;
+
 import android.app.Activity;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import dev.bnna.androlua.R;
 
-public class LuaActivity extends Activity {
+public class LuaActivity extends Activity implements OnClickListener {
 
 	// Lua解析和执行由此对象完成
 	public LuaState mLuaState;
@@ -32,49 +35,90 @@ public class LuaActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.lua_main);
-		mLayout = (LinearLayout) findViewById(R.id.layout);
-		mDisplay = (TextView) mLayout.findViewById(R.id.display);
+	
 		mLuaState = LuaStateFactory.newLuaState();
 		mLuaState.openLibs();
-		// initLuaState();
-//		Logger
+
+		initView();
 	}
-
-	public void runStatement(View v) {
-
-		// 定义一个Lua变量
-//		mLuaState
-//				.LdoString(" varSay = 'This is string in lua script statement.'");
-//		// 获取
-//		mLuaState.getGlobal("varSay");
-//		// 输出
-//		mDisplay.setText(mLuaState.toString(-1));
-		mLuaState.LdoFile("mprint.lua");
-	    
-	    Printable p = new ObjPrint();
-	    p.print("TESTE 1");
-	    //获取Lua中的全局变量
-		LuaObject o = mLuaState.getLuaObject("luaPrint");
+	
+	private void initView() {
+		findViewById(R.id.main_btn_1).setOnClickListener(this);
+		findViewById(R.id.main_btn_2).setOnClickListener(this);
+		findViewById(R.id.main_btn_3).setOnClickListener(this);
+		findViewById(R.id.main_btn_4).setOnClickListener(this);
+		findViewById(R.id.main_btn_5).setOnClickListener(this);
+        findViewById(R.id.main_btn_6).setOnClickListener(this);
+        findViewById(R.id.main_btn_7).setOnClickListener(this);
+		mLayout = (LinearLayout) findViewById(R.id.layout);
+		mDisplay = (TextView) mLayout.findViewById(R.id.display);
+	}
+	
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
 		
-		//Lua对象创建PrintTable的代理
-	    try {
-			p = (Printable) o.createProxy("org.keplerproject.luajava.Printable");
-			 //通过lua来实现
-		    p.print("Teste 2");
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (LuaException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		case R.id.main_btn_1:
+			runLuaScript();
+			break;
+		case R.id.main_btn_2:
+			runLuaFile();
+			break;
+		case R.id.main_btn_3:
+			callAndroidAPI();
+			break;
+		case R.id.main_btn_4:
+			launchSetting();
+			break;
+		case R.id.main_btn_5:
+			launchActivity();
+			break;
+        case R.id.main_btn_6:
+            addButton();
+            break;
+        case R.id.main_btn_7:
+            printLog("test from java");
+        break;
+	
+		default:
+			break;
 		}
-	   
-	  
-		
+	}
+
+    /**
+     * 输出log日志
+     * @param s string
+     */
+    private void printLog(String s) {
+        mLuaState.LdoString(readStream(getResources().openRawResource(
+                R.raw.log)));
+
+
+        mLuaState.getField(LuaState.LUA_GLOBALSINDEX, "printlog");
+        // 将参数压入栈
+        mLuaState.pushString("from java");
+        mLuaState.call(1, 0);
+    }
+
+    /**
+	 * 运行lua脚本语句
+	 */
+	public void runLuaScript() {
+		// 定义一个Lua变量
+		mLuaState
+				.LdoString(" varSay = 'This is string in lua script statement.'");
+		// 获取
+		mLuaState.getGlobal("varSay");
+		// 输出
+		mDisplay.setText(mLuaState.toString(-1));
+
 
 	}
 
-	public void runFile(View v) {
+	/**
+	 * 运行lua脚本文件
+	 */
+	public void runLuaFile() {
 		mLuaState.LdoString(readStream(getResources().openRawResource(
 				R.raw.test)));
 		// 找到functionInLuaFile函数
@@ -96,9 +140,8 @@ public class LuaActivity extends Activity {
 	/**
 	 * lua 调用 android api
 	 * 
-	 * @param v
 	 */
-	public void callAndroidAPI(View v) {
+	public void callAndroidAPI() {
 		mLuaState.LdoString(readStream(getResources().openRawResource(
 				R.raw.test)));
 		// 找到functionInLuaFile函数
@@ -111,9 +154,8 @@ public class LuaActivity extends Activity {
 
 	/**
 	 * 跳转到设置界面
-	 * @param v
 	 */
-	public void launchSetting(View v) {
+	public void launchSetting() {
 		mLuaState.LdoString(readStream(getResources().openRawResource(
 				R.raw.test)));
 		// 找到functionInLuaFile函数
@@ -123,7 +165,10 @@ public class LuaActivity extends Activity {
 
 	}
 
-	public void launchActivity(View v) {
+    /**
+     * lua调用启动新界面方法
+     */
+	public void launchActivity() {
 	
 		mLuaState.LdoString(readStream(getResources().openRawResource(
 				R.raw.test)));
@@ -134,18 +179,18 @@ public class LuaActivity extends Activity {
 
 	}
 
-	public void addButton(View v) {
+	/**
+	 * lua添加按钮并给按钮设置监听,设置背景颜色，图片，调用toast
+	 */
+	public void addButton() {
 		try {
-//Button
 			Button button = new Button(this);
 			button.setBackgroundColor(Color.BLACK);
 //			button.setBackgroundResource(resid);
 			
 			mLuaState.LdoString(readStream(getResources().openRawResource(
 					R.raw.test)));
-			// 找到functionInLuaFile函数
 			mLuaState.getField(LuaState.LUA_GLOBALSINDEX, "addButton");
-//			mLuaState.getField(LuaState.LUA_GLOBALSINDEX, "newLayout");
 			mLuaState.pushJavaObject(getApplicationContext());// 第一个参数 context
 			mLuaState.pushJavaObject(mLayout);// 第二个参数， Layout
 			mLuaState.call(2, 0);// 2个参数，0个返回值
@@ -211,10 +256,13 @@ public class LuaActivity extends Activity {
 				}
 				fs.close();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 	}
+
+	
+		
+	
 
 }

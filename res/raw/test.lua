@@ -12,45 +12,38 @@ function callAndroidApi(context,layout,tip)
     --调用Layout的方法
     layout:addView(tv)
     localString = tip
---     print("Hello! lua method")
--- print("World! android ")
---     print(tip)
---    local Toast = luajava.bindClass('android.widget.Toast')
---     Toast:makeText(context, tip, Toast.LENGTH_SHORT):show()
--- local logcat = luajava.bindClass('android.util.log')
-    -- assert(tip)
-    
- -- fprintf(stdout,"helloaaa")
  
 end
 
 
 
 function launchSetting(context)
-    intent = luajava.newInstance("android.content.Intent")
-    c = luajava.newInstance("android.content.ComponentName","com.android.settings", "com.android.settings.Settings")
-    intent:setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
-    intent:setComponent(c)
-    context:startActivity(intent)
+
+     intent = luajava.newInstance("android.content.Intent")
+     c = luajava.newInstance("android.content.ComponentName","com.android.settings", "com.android.settings.Settings")
+     intent:setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
+     intent:setComponent(c)
+     context:startActivity(intent)
 
 
 end
 
-    -- 启动 intent
-    function launchIntent(context)
-        -- new 一个java 实例
-        local intent = luajava.newInstance("android.content.Intent")
-        intent:addFlags(0x10000000)
-        intent:setAction("android.intent.action.VIEW")
-        -- bind 一个Java实例，调用static 方法
-        local uri = luajava.bindClass("android.net.Uri")
-        intent:setData(uri.parse(uri,"http://blog.csdn.net/hpccn"))
-        context:startActivity(intent);
-    end
+    -- 启动 intent  bind 一个Java实例，调用static 方法
+function launchIntent(context)
+    -- new 一个java 实例
+    local intent = luajava.newInstance("android.content.Intent")
+    intent:addFlags(0x10000000)
+    intent:setAction("android.intent.action.VIEW")
+    -- bind 一个Java实例，调用static 方法
+    local uri = luajava.bindClass("android.net.Uri")
+    intent:setData(uri.parse(uri,"http://www.baidu.com"))
+    context:startActivity(intent);
+end
 
+-- -- 启动 intent new 一个java 实例
 function launchActivity(context)
     intent = luajava.newInstance("android.content.Intent")
-    c = luajava.newInstance("android.content.ComponentName","sk.kottman.androlua", "sk.kottman.androlua.SecondActivity")
+    c = luajava.newInstance("android.content.ComponentName","dev.bnna.androlua", "dev.bnna.androlua.SecondActivity")
     intent:setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
     intent:setComponent(c)
     context:startActivity(intent)
