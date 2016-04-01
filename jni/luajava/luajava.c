@@ -370,43 +370,9 @@ static jclass    java_lang_class      = NULL;
    static JNIEnv * getEnvFromState( lua_State * L );
    
 
-   static int prints( lua_State * L);
-
-
 /********************* Implementations ***************************/
 
-/***************************************************************************/
-
-
-/**
- * Function: print
- *
- ******/
-   static int prints(lua_State* L) {
-       int nargs = lua_gettop(L);
-       int i;
-       for (i = 0 ; i <= nargs; i++) {
-           if (lua_isstring(L, i)) {
-//        	   	 print();
-        	  // fprintf(stdout,lua_tostring(L,i));
-               /* Pop the next arg using lua_tostring(L, i) and do your print */
-        	   fprintf( stderr ,"prints string error from  prints");
-           }
-           else {
-        	   fprintf( stderr ,  "prints string error" );
-           /* Do something with non-strings if you like */
-           }
-       }
-
-       return 0;
-   }
-   static const struct luaL_Reg printlib [] = {
-     {"print", prints},
-     {NULL, NULL} /* end of array */
-   };
-
-
-/**
+/***************************************************************************
 *
 *  Function: objectIndex
 *  ****/
@@ -1559,6 +1525,98 @@ static void set_info (lua_State *L) {
 	lua_settable (L, -3);
 }
 
+
+/**
+ * Add Android logCat support to lua script.
+ * vitonzhang 2016-04-01
+ **/
+static int l_my_logD(lua_State* L) {
+
+	int top;
+	JNIEnv * javaEnv;
+	jclass clazz;
+	jmethodID method;
+	const char * message;
+	const char * tag = "luajava";
+	jstring javaMessage;
+	jstring javaTag;
+
+	/* Gets the JNI Environment */
+	javaEnv = getEnvFromState( L );
+	if ( javaEnv == NULL )
+	{
+		lua_pushstring( L , "Invalid JNI Environment." );
+		lua_error( L );
+	}
+
+	// top = lua_gettop(L);
+
+//#if  0
+//	if (top == 1) {
+//
+//		/* get the string parameter */
+//		if ( !lua_isstring( L , 1 ) )
+//		{
+//			lua_pushstring( L , "top==1 Invalid parameter type. String expected." );
+//			lua_error( L );
+//		}
+//
+//		message = lua_tostring( L , 1 );
+//		javaMessage = ( *javaEnv )->NewStringUTF( javaEnv , message );
+//		javaTag = ( *javaEnv )->NewStringUTF( javaEnv, tag );
+//	}
+//
+//	else if (top == 2) {
+//
+//		/* get the string parameter */
+//		if	( !lua_isstring( L, 1 )  || !lua_isstring( L, 2 ))
+//		{
+//			lua_pushstring( L , "top==2 Invalid parameter type. String expected." );
+//			lua_error( L );
+//		}
+//
+//		message = lua_tostring( L, 	1 );
+//		javaMessage = ( *javaEnv )->NewStringUTF( javaEnv , message );
+//		const char * xtag = lua_tostring( L, 2 );
+//		javaTag = ( *javaEnv )->NewStringUTF( javaEnv, xtag );
+//	}
+//#endif
+
+	/* get the string parameter */
+	if ( !lua_isstring( L , 1 ) )
+	{
+		lua_pushstring( L , "Invalid parameter type. String expected." );
+		lua_error( L );
+	}
+
+	message = lua_tostring( L , 1 );
+	javaMessage = ( *javaEnv )->NewStringUTF( javaEnv , message );
+	javaTag = ( *javaEnv )->NewStringUTF( javaEnv, tag );
+
+	clazz = ( *javaEnv )->FindClass(javaEnv, "android/util/Log");
+
+	if ( clazz == NULL )
+    {
+      fprintf( stderr , "Could not find Log interface\n" );
+      exit( 1 );
+    }
+
+	method = ( *javaEnv )->GetStaticMethodID(javaEnv, clazz, "d", "(Ljava/lang/String;Ljava/lang/String;)I");
+
+	( *javaEnv )->CallStaticIntMethod(javaEnv, clazz, method, javaTag, javaMessage);
+
+	( *javaEnv )->DeleteLocalRef(javaEnv, javaTag);
+	( *javaEnv )->DeleteLocalRef(javaEnv, javaMessage);
+
+    return 0;
+}
+
+static const struct luaL_Reg printlib [] = {
+  {"logd", l_my_logD},
+  {NULL, NULL} /* end of array */
+};
+// -- End
+
 /**************************** JNI FUNCTIONS ****************************/
 
 /************************************************************************
@@ -1608,16 +1666,13 @@ JNIEXPORT void JNICALL Java_org_keplerproject_luajava_LuaState_luajava_1open
   lua_pushcfunction( L , &createProxy );
   lua_settable( L , -3 );
 
-//  lua_pushstring( L , "prints" );
-//  lua_pushcfunction( L , &prints );
-//  lua_settable( L , -3 );
-//
-//  lua_getglobal(L, "_G");
-//  luaL_register(L, NULL, printlib);
-
-
   lua_pop( L , 1 );
 
+// -- Start
+    lua_getglobal(L, "_G");
+    luaL_register(L, "nmdebug", printlib);
+    lua_pop(L, 1);
+// -- End
 
   if ( luajava_api_class == NULL )
   {
@@ -3446,10 +3501,3 @@ JNIEXPORT jstring JNICALL Java_org_keplerproject_luajava_LuaState__1LfindTable
 
    return ( *env )->NewStringUTF( env , sub );
 }
-
-/************************************************************************
-*   JNI Called function
-*      Lua Exported Function
-************************************************************************/
-
-
