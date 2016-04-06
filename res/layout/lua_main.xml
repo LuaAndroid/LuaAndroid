@@ -53,7 +53,31 @@
         android:id="@+id/main_btn_7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="addButton"
+        
         android:text="输出log" />
+
+    <Button
+        android:id="@+id/main_btn_8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Http From Java" />
+
+    <Button
+        android:id="@+id/main_btn_9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Http From Lua" />
+
+    <ImageView
+        android:id="@+id/iv_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#eeeeee"
+        android:id="@+id/add_lyout"
+        android:orientation="horizontal">
+    </LinearLayout>
 
 </LinearLayout>

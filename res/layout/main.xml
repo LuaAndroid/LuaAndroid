@@ -16,7 +16,8 @@
           android:layout_weight="1" android:id="@+id/source"
           android:longClickable="true" android:typeface="monospace"
           android:scrollbars="vertical"
-          android:textSize="12sp" 
+          android:textSize="12sp"
+
           android:gravity="top|left">        
     </TextView>
     <TextView android:text="TextView" 
