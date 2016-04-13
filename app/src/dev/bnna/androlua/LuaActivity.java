@@ -32,7 +32,9 @@ public class LuaActivity extends Activity implements OnClickListener {
 		mLuaState.openLibs();
 		initView();
 
-	}
+
+    }
+
 	
 	private void initView() {
 		findViewById(R.id.main_btn_1).setOnClickListener(this);
@@ -44,6 +46,8 @@ public class LuaActivity extends Activity implements OnClickListener {
         findViewById(R.id.main_btn_7).setOnClickListener(this);
         findViewById(R.id.main_btn_8).setOnClickListener(this);
         findViewById(R.id.main_btn_9).setOnClickListener(this);
+
+//        PercentRelativeLayout
 		mLayout = (LinearLayout) findViewById(R.id.layout);
         addLyout = (LinearLayout) findViewById(R.id.add_lyout);
 		mDisplay = (TextView) mLayout.findViewById(R.id.display);
@@ -70,7 +74,8 @@ public class LuaActivity extends Activity implements OnClickListener {
 			launchActivity();
 			break;
         case R.id.main_btn_6:
-            addButton();
+//            addButton();
+            showButton();
             break;
         case R.id.main_btn_7:
             printLog("test from java");
@@ -78,13 +83,18 @@ public class LuaActivity extends Activity implements OnClickListener {
         case R.id.main_btn_8:
             showText();
         break;
+        case R.id.main_btn_9:
+
+        break;
 	
 		default:
 			break;
 		}
 	}
 
+    public void getRes4SDCard(){
 
+    }
 
     /**
 	 * 运行lua脚本语句
@@ -97,6 +107,7 @@ public class LuaActivity extends Activity implements OnClickListener {
 		mLuaState.getGlobal("varSay");
 		// 输出
 		mDisplay.setText(mLuaState.toString(-1));
+
 	}
 
 	/**
@@ -219,7 +230,7 @@ public class LuaActivity extends Activity implements OnClickListener {
             public void run() {
                 super.run();
 
-                final Bitmap bitmap = NetUtil.getBitmap("icon.png");
+                final Bitmap bitmap = NetUtil.getBitmap(Constant.LOCAL_PATH+"girl.jpg");
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -255,6 +266,46 @@ public class LuaActivity extends Activity implements OnClickListener {
         }.start();
 
     }
+
+    public void showButton(){
+
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                final String str =  NetUtil.getString(Constant.TEST);
+//                Log.e("lua",str);
+                LuaActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+//                        mLuaState.LdoString(str);
+//                        mLuaState.getField(LuaState.LUA_GLOBALSINDEX, "getHttpFromJava");
+//                        mLuaState.pushString("get result from http ");
+//                        mLuaState.call(1, 1);
+//                        mLuaState.setField(LuaState.LUA_GLOBALSINDEX, "resultKey");
+//                        mLuaState.getGlobal("resultKey");
+//                        mDisplay.setText(mLuaState.toString(-1));
+
+
+                        Button button = new Button(LuaActivity.this);
+                        button.setBackgroundColor(Color.GREEN);
+
+                        mLuaState.LdoString(str);
+                        mLuaState.getField(LuaState.LUA_GLOBALSINDEX, "addButton");
+
+                        mLuaState.pushJavaObject(getApplicationContext());// 第一个参数 context
+                        mLuaState.pushJavaObject(addLyout);// 第二个参数， Layout
+                        mLuaState.call(2, 0);// 2个参数，0个返回值
+
+
+                    }
+                });
+            }
+        }.start();
+
+    }
+
+
 
 
 

@@ -6,7 +6,9 @@ import android.graphics.BitmapFactory;
 import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
+import java.net.InetAddress;
 import java.net.URL;
+import java.net.UnknownHostException;
 
 /**
  * Created by wenshengping on 16/4/7.
@@ -19,7 +21,7 @@ public class NetUtil {
      * @return 文件内容
      */
     public static String getString(String filePath) {
-        final String path = Constant.LOCAL_PATH+filePath;
+        final String path = Constant.LOCAL_PATH + filePath;
         InputStream is = null;
         HttpURLConnection conn = null;
         String str =null;
@@ -99,5 +101,33 @@ public class NetUtil {
             }
         }
         return bitmap;
+    }
+
+    public static InetAddress getInetAddress(){
+
+        try{
+            return InetAddress.getLocalHost();
+        }catch(UnknownHostException e){
+            e.printStackTrace();
+            System.out.println("unknown host!");
+        }
+        return null;
+
+    }
+
+    public static String getHostIp(InetAddress netAddress){
+        if(null == netAddress){
+            return null;
+        }
+        String ip = netAddress.getHostAddress(); //get the ip address
+        return ip;
+    }
+
+    public static String getHostName(InetAddress netAddress){
+        if(null == netAddress){
+            return null;
+        }
+        String name = netAddress.getHostName(); //get the host address
+        return name;
     }
 }

@@ -1,6 +1,6 @@
 
 --此函数由Java代码调用。接受一个参数，并返回一个字符串
-function functionInLuaFile(key)
+function getFunctionInLuaFile(key)
      return ' Function in Lua file . Return : '..key..'!'
 end
 --此函数由Java代码调用。接受三个参数。并调用这些Android组件的方法。
