@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -17,7 +18,8 @@ import org.keplerproject.luajava.LuaStateFactory;
 
 public class LuaActivity extends Activity implements OnClickListener {
 
-	// Lua解析和执行由此对象完成
+    private static final String TAG = LuaActivity.class.getSimpleName();
+    // Lua解析和执行由此对象完成
 	public LuaState mLuaState;
 	public TextView mDisplay;
 	public LinearLayout mLayout;
@@ -31,7 +33,11 @@ public class LuaActivity extends Activity implements OnClickListener {
 		mLuaState = LuaStateFactory.newLuaState();
 		mLuaState.openLibs();
 		initView();
+        float scale = getResources().getDisplayMetrics().density;
+        Log.e(TAG, "onCreate: scale  " + scale );
 
+
+        Log.e(TAG, "onCreate: size"+ DisplayUtil.applyDimension(this,100));
 
     }
 

@@ -58,6 +58,7 @@ public class CustomViewActivity extends Activity {
         addLuaView(linearLayout,Constant.VIEW,"mainView");
         long endTime = System.currentTimeMillis();
         Log.e(TAG, "onCreate: "+(endTime-startTime));
+
     }
 
     public void luaButton(View v){
@@ -65,6 +66,8 @@ public class CustomViewActivity extends Activity {
         addLuaView(linearLayout,Constant.VIEW,"rectView");
 
         Toast.makeText(CustomViewActivity.this, "luaButton", Toast.LENGTH_SHORT).show();
+
+
     }
 
     private void setPercentView() {

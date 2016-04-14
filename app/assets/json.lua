@@ -5,11 +5,14 @@
 -- Time: 19:48
 -- To change this template use File | Settings | File Templates.
 --
+
+local cjson = require "cjson"
+
 -------简单数据-------
 local tab ={}
-tab["Himi"] = "himigame.com"
+tab["hello"] = "hello world"
 --数据转json
-local cjson = require "cjson"
+
 local jsonData = cjson.encode(tab)
 
 print(jsonData)
@@ -19,7 +22,7 @@ print(jsonData)
 local data = cjson.decode(jsonData)
 
 print(data.Himi)
--- 打印结果:  himigame.com
+
 
 
 ----带数组的复杂数据-----
@@ -52,5 +55,4 @@ local b = data.testArray.array[2]
 local c = data.Himi
 
 print("a:"..a.."  b:"..b.."  c:"..c)
--- 打印结果： a:23  b:9  c:himigame.com
-
+-- 打印结果： a:23  b:9  c:hello world
