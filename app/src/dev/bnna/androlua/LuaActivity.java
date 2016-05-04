@@ -15,6 +15,11 @@ import android.widget.TextView;
 import org.keplerproject.luajava.LuaState;
 import org.keplerproject.luajava.LuaStateFactory;
 
+import dev.bnna.androlua.utils.Constant;
+import dev.bnna.androlua.utils.DisplayUtil;
+import dev.bnna.androlua.utils.FileUtil;
+import dev.bnna.androlua.utils.NetUtil;
+
 
 public class LuaActivity extends Activity implements OnClickListener {
 
@@ -25,6 +30,7 @@ public class LuaActivity extends Activity implements OnClickListener {
 	public LinearLayout mLayout;
 	public LinearLayout addLyout;
 
+    public String zipFile = "lua.zip";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -37,7 +43,7 @@ public class LuaActivity extends Activity implements OnClickListener {
         Log.e(TAG, "onCreate: scale  " + scale );
 
 
-        Log.e(TAG, "onCreate: size"+ DisplayUtil.applyDimension(this,100));
+        Log.e(TAG, "onCreate: size"+ DisplayUtil.size(this,100));
 
     }
 
@@ -68,7 +74,8 @@ public class LuaActivity extends Activity implements OnClickListener {
 //			runLuaScript();
 			break;
 		case R.id.main_btn_2:
-			runLuaFile();
+//			runLuaFile();
+            testImport();
 			break;
 		case R.id.main_btn_3:
 			callAndroidAPI();
@@ -90,6 +97,7 @@ public class LuaActivity extends Activity implements OnClickListener {
             showText();
         break;
         case R.id.main_btn_9:
+            getZipFile(zipFile);
 
         break;
 	
@@ -98,9 +106,27 @@ public class LuaActivity extends Activity implements OnClickListener {
 		}
 	}
 
-    public void getRes4SDCard(){
+    private void getZipFile(final String file) {
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                NetUtil.downloadFile(file);
+
+//                runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//
+//                    }
+//                });
+
+
+            }
+        }.start();
 
     }
+
+
 
     /**
 	 * 运行lua脚本语句
@@ -170,6 +196,15 @@ public class LuaActivity extends Activity implements OnClickListener {
 		mLuaState.call(1, 0);
 
 	}
+
+    public void testImport(){
+
+                        mLuaState.LdoString(FileUtil.readStreamFromAssets(this,"testimport.lua"));
+                        mLuaState.getField(LuaState.LUA_GLOBALSINDEX, "showToast");
+                        mLuaState.pushJavaObject(getApplicationContext());
+                        mLuaState.call(1, 0);
+
+    }
 
     /**
      * lua调用启动新界面方法

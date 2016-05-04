@@ -21,6 +21,4 @@
     return str..content
 end
 
-local function read_Image()
 
-end

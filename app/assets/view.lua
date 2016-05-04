@@ -32,7 +32,7 @@ function mainView(context,layout)
 
     -- top
     local horizontalViewTop = horizontalLinearLayout(context)
-    horizontalViewTop:addView( viewWithSpecials(context,"/sdcard/lua/ic_choose_title.png",specials[1],specials[2],specials[3],icDrawables[2]))
+    horizontalViewTop:addView( viewWithSpecials(context,titles[1],specials[1],specials[2],specials[3],icDrawables[2]))
     horizontalViewTop:addView(viewWithText(context,titles[1],colorTitle[4],titles[2],icDrawables[4]))
     horizontalViewTop:addView(viewWithText(context,titles[3],colorTitle[5],titles[2],icDrawables[6]))
 
@@ -45,7 +45,7 @@ function rectView(context,layout)
     -- 通过加载sdcard中的文件
     -- top
     local horizontalViewTop = horizontalLinearLayout(context)
-    horizontalViewTop:addView( viewWithSpecials(context,"/sdcard/lua/ic_choose_title.png",specials[1],specials[2],specials[3],icDrawables[2]))
+    horizontalViewTop:addView( viewWithSpecials(context,titles[1],specials[1],specials[2],specials[3],icDrawables[2]))
     horizontalViewTop:addView(viewWithText(context,titles[1],colorTitle[4],titles[2],icDrawables[4]))
     horizontalViewTop:addView(viewWithText(context,titles[3],colorTitle[5],titles[2],icDrawables[6]))
 
@@ -82,7 +82,7 @@ function horizontalLinearLayout(context)
     local MARGIN = 10
     local linearLayoutView = luajava.newInstance("android.widget.LinearLayout",context)
     local layoutParamsClazz = luajava.bindClass("android.widget.LinearLayout$LayoutParams")
-    local layoutParams = luajava.newInstance("android.widget.LinearLayout$LayoutParams",layoutParamsClazz.MATCH_PARENT,400)
+    local layoutParams = luajava.newInstance("android.widget.LinearLayout$LayoutParams",layoutParamsClazz.MATCH_PARENT,300)
     layoutParams:setMargins(MARGIN,MARGIN,MARGIN,MARGIN)
 
     local linearLayoutClazz = luajava.bindClass("android.widget.LinearLayout")
@@ -153,6 +153,16 @@ function viewWithSpecials(context,titlePic,subTitleText,specialTitle,specialText
     linearLayoutView:addView(subTitleTv)
     linearLayoutView:addView(specialTitleTV)
     linearLayoutView:addView(specialTextTv)
+
+    local listener = luajava.createProxy("android.view.View$OnClickListener", {
+
+        onClick = function(v)
+            local Toast = luajava.bindClass('android.widget.Toast')
+            Toast:makeText(context, specialTitle, Toast.LENGTH_SHORT):show()
+        end
+
+    })
+    linearLayoutView:setOnClickListener(listener)
 
     return linearLayoutView
 end
@@ -251,7 +261,15 @@ function rectHorizontalView(context,titleText,titleColor,subTitleText,mainImg)
     linearLayoutView:addView(titleTv)
     linearLayoutView:addView(subTitleTv)
     linearLayoutView:addView(mainIv)
+    local listener = luajava.createProxy("android.view.View$OnClickListener", {
 
+        onClick = function(v)
+            local Toast = luajava.bindClass('android.widget.Toast')
+            Toast:makeText(context, titleText, Toast.LENGTH_SHORT):show()
+        end
+
+    })
+    linearLayoutView:setOnClickListener(listener)
     return linearLayoutView
 end
 
@@ -316,6 +334,18 @@ function rectVerticalview(context,titleText,titleColor,subTitleText,mainImg)
     relativeLayoutView:addView(mainIv,mainIvParams)
 
 --    layout:addView(relativeLayoutView)
+
+
+    local listener = luajava.createProxy("android.view.View$OnClickListener", {
+
+        onClick = function(v)
+            local Toast = luajava.bindClass('android.widget.Toast')
+            Toast:makeText(context, titleText, Toast.LENGTH_SHORT):show()
+        end
+
+    })
+    relativeLayoutView:setOnClickListener(listener)
+
     return relativeLayoutView
 end
 
@@ -332,6 +362,8 @@ function line(context)
     view.setLayoutParams(layoutParams)
     return view
 end
+
+
 
 
 

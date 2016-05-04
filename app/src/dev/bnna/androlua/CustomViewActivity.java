@@ -26,6 +26,10 @@ import org.xmlpull.v1.XmlPullParser;
 
 import java.io.IOException;
 
+import dev.bnna.androlua.utils.Constant;
+import dev.bnna.androlua.utils.FileUtil;
+import dev.bnna.androlua.utils.NetUtil;
+
 public class CustomViewActivity extends Activity {
     final int MARGIN = 10;
     public LuaState mLuaState;
@@ -55,14 +59,14 @@ public class CustomViewActivity extends Activity {
         linearLayout = (LinearLayout) this.findViewById(R.id.custom_view);
 
 ////        linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-        addLuaView(linearLayout,Constant.VIEW,"mainView");
+        addLuaView(linearLayout, Constant.VIEW,"mainView");
         long endTime = System.currentTimeMillis();
         Log.e(TAG, "onCreate: "+(endTime-startTime));
 
     }
 
     public void luaButton(View v){
-        linearLayout.removeAllViews();
+//        linearLayout.removeAllViews();
         addLuaView(linearLayout,Constant.VIEW,"rectView");
 
         Toast.makeText(CustomViewActivity.this, "luaButton", Toast.LENGTH_SHORT).show();
@@ -90,7 +94,6 @@ public class CustomViewActivity extends Activity {
 
     public void addLuaView(final LinearLayout linearLayout,final String path,final String function){
         long startTime = System.currentTimeMillis();
-
         new Thread(){
             @Override
             public void run() {
@@ -103,7 +106,11 @@ public class CustomViewActivity extends Activity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        mLuaState.LdoString(str);
+                        if (str == null) {
+                            mLuaState.LdoString(FileUtil.readStreamFromAssets(CustomViewActivity.this,"view.lua"));
+                        }else {
+                            mLuaState.LdoString(str);
+                        }
                         mLuaState.getField(LuaState.LUA_GLOBALSINDEX,function);
                         mLuaState.pushJavaObject(getApplicationContext());// 第一个参数 context
                         mLuaState.pushJavaObject(linearLayout);// 第二个参数， Layout
@@ -113,6 +120,8 @@ public class CustomViewActivity extends Activity {
                 });
             }
         }.start();
+
+
         long endTime = System.currentTimeMillis();
         Log.e(TAG, "runOnUiThread: "+(endTime-startTime));
 
