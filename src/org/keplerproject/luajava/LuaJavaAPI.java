@@ -413,6 +413,133 @@ public final class LuaJavaAPI
     }
   }
 
+  //--Start vitonzhang 2016-04-11
+  /**
+   * Set the value of instance's field.  
+   * 
+   * @param luaState int that represents the state to be used
+   * @param obj object whose property will be changed
+   * @param fieldName name of the field whose value be changed 
+   * @param value new value for the field 
+   * @return number of returned objects
+   **/
+  public static int setField(int luaState, Object obj, String fieldName, Object value) 
+  {
+	  LuaState L = LuaStateFactory.getExistingState(luaState);
+	  
+	  synchronized (L)
+	  {
+		  
+		  Class clazz;
+		  Field field = null;
+		  
+		  if (obj instanceof Class)
+		  {
+			  clazz = (Class) obj;
+		  }
+		  else
+		  {
+			  clazz = obj.getClass();
+		  }
+		  
+		  // Get the field.
+		  try 
+		  {
+			  field = clazz.getField(fieldName);
+		  }
+		  catch (Exception e)
+		  {
+			  return 0;
+		  }
+		  
+		  if (field == null)
+		  {
+			  return 0;
+		  }
+		  
+		  try 
+		  {
+			  Class fieldClazz = field.getType();
+			  
+			  if (fieldClazz.isPrimitive() && value instanceof Double) // Primitive Type
+			  {
+				  // int i = 0;
+				  
+				  // Primitive Type
+				  // https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
+				  
+				  Double valueObj = (Double)value;
+				 
+				  if (fieldClazz.equals(byte.class))
+				  {
+					  // i = 1;
+					  field.setByte(obj, valueObj.byteValue());
+				  }
+				  else if (fieldClazz.equals(short.class))
+				  {
+					  // i = 2;
+					  field.setShort(obj, valueObj.shortValue());
+				  }
+				  else if (fieldClazz.equals(int.class)) 
+				  {
+					  // i = 3;
+					  field.setInt(obj, valueObj.intValue());
+				  }
+				  else if (fieldClazz.equals(long.class)) 
+				  {
+					  // i = 4;
+					  field.setLong(obj, valueObj.longValue());
+				  }
+				  else if (fieldClazz.equals(float.class)) 
+				  {
+					  // i = 5;
+					  field.setFloat(obj, valueObj.floatValue());
+				  }
+				  else if (fieldClazz.equals(double.class))
+				  {
+					  // i = 6;
+					  field.setDouble(obj, valueObj.doubleValue());
+				  }
+				  else if (fieldClazz.equals(boolean.class))
+				  {
+					  // i = 7;
+					  int intValue = valueObj.intValue();
+					  boolean boolValue = intValue == 1 ? true : false;
+					  field.setBoolean(obj, boolValue);
+				  }
+			  }
+			  // Set value of the property which is char type.
+			  else if (fieldClazz.equals(char.class) && value instanceof String)
+			  {
+				  String stringValue = (String)value;
+				  char charValue = stringValue.charAt(0);
+				  field.setChar(obj, charValue);
+			  }
+			  // Set value of the property which is boolean type via 'true' or 'false' in lua.
+			  else if (fieldClazz.equals(boolean.class) && value instanceof Boolean)
+			  {
+				  Boolean boolObj = (Boolean)value;
+				  field.setBoolean(obj, boolObj.booleanValue());
+			  }
+			  else // Reference Type
+			  {
+				  field.set(obj, value);
+			  }
+		  }
+		  catch (IllegalAccessException e)
+		  {
+			  return 0;
+		  }
+		  catch (IllegalArgumentException e) 
+		  {
+			  return 0;
+		  }
+	  }
+	  
+	  return 0;
+  }
+//--End vitonzhang 2016-04-11
+  
   /**
    * Checks to see if there is a method with the given name.
    * 
