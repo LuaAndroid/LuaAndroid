@@ -7,13 +7,14 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.percent.PercentLayoutHelper;
-import android.support.percent.PercentRelativeLayout;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.Xml;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -23,8 +24,6 @@ import android.widget.Toast;
 import org.keplerproject.luajava.LuaState;
 import org.keplerproject.luajava.LuaStateFactory;
 import org.xmlpull.v1.XmlPullParser;
-
-import java.io.IOException;
 
 import dev.bnna.androlua.utils.Constant;
 import dev.bnna.androlua.utils.FileUtil;
@@ -57,12 +56,54 @@ public class CustomViewActivity extends Activity {
         mLuaState.openLibs();
 
         linearLayout = (LinearLayout) this.findViewById(R.id.custom_view);
-
+//        getScreen(Constant.VIEW,"getScreen");
 ////        linearLayout.setOrientation(LinearLayout.HORIZONTAL);
         addLuaView(linearLayout, Constant.VIEW,"mainView");
-        long endTime = System.currentTimeMillis();
-        Log.e(TAG, "onCreate: "+(endTime-startTime));
+//        long endTime = System.currentTimeMillis();
+//        Log.e(TAG, "onCreate: "+(endTime-startTime));
 
+    }
+
+    private void getScreen(final String path,final String function) {
+
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+
+
+                final String str =  NetUtil.getString(path);
+//
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        DisplayMetrics metrics = new DisplayMetrics();
+                        WindowManager WM = (WindowManager) CustomViewActivity.this.getSystemService(Context.WINDOW_SERVICE);
+                        Display display = WM.getDefaultDisplay();
+                        display.getMetrics(metrics);
+                        int height = metrics.heightPixels; // 屏幕高
+                        int width = metrics.widthPixels; // 屏幕的宽
+                        int scale = (int)getResources().getDisplayMetrics().density;
+                        Log.e(TAG, "getDisplay: width/height/scale   "+width +"/"+height +"/"+scale);
+                        long startTime = System.currentTimeMillis();
+//                        Log.e(TAG, "str: "+str);
+                        if (str == null) {
+                            mLuaState.LdoString(FileUtil.readStreamFromAssets(CustomViewActivity.this,"view.lua"));
+                        }else {
+                            mLuaState.LdoString(str);
+                        }
+                        mLuaState.getField(LuaState.LUA_GLOBALSINDEX,function);
+                        mLuaState.pushJavaObject(getApplicationContext());// 第一个参数 context
+                        mLuaState.pushJavaObject(scale);// 第二个参数， Layout
+                        mLuaState.pushJavaObject(width);// 第二个参数， Layout
+                        mLuaState.pushJavaObject(height);// 第二个参数， Layout
+                        mLuaState.call(4, 0);// 2个参数，0个返回值
+
+                    }
+                });
+            }
+        }.start();
     }
 
     public void luaButton(View v){
@@ -75,20 +116,20 @@ public class CustomViewActivity extends Activity {
     }
 
     private void setPercentView() {
-        setContentView(R.layout.percent_view);
-        PercentRelativeLayout relativeLayout = (PercentRelativeLayout) findViewById(R.id.percentile_view);
-
-        PercentRelativeLayout.LayoutParams layoutParams = (PercentRelativeLayout.LayoutParams) relativeLayout.getLayoutParams();
-
-        PercentLayoutHelper.PercentLayoutInfo percentLayoutInfo = layoutParams.getPercentLayoutInfo();
-        percentLayoutInfo.leftMarginPercent = 15 * 0.01f; //15 is the percentage value you want to set it to
-        relativeLayout.setLayoutParams(layoutParams);
-        relativeLayout.requestLayout();
-        try {
-            relativeLayout.addView(rectPercentView(this,"电影",2000,"伦敦",R.drawable.icon,true));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        setContentView(R.layout.percent_view);
+//        PercentRelativeLayout relativeLayout = (PercentRelativeLayout) findViewById(R.id.percentile_view);
+//
+//        PercentRelativeLayout.LayoutParams layoutParams = (PercentRelativeLayout.LayoutParams) relativeLayout.getLayoutParams();
+//
+//        PercentLayoutHelper.PercentLayoutInfo percentLayoutInfo = layoutParams.getPercentLayoutInfo();
+//        percentLayoutInfo.leftMarginPercent = 15 * 0.01f; //15 is the percentage value you want to set it to
+//        relativeLayout.setLayoutParams(layoutParams);
+//        relativeLayout.requestLayout();
+//        try {
+//            relativeLayout.addView(rectPercentView(this,"电影",2000,"伦敦",R.drawable.icon,true));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
 
@@ -106,11 +147,16 @@ public class CustomViewActivity extends Activity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        long startTime = System.currentTimeMillis();
+//                        Log.e(TAG, "str: "+str);
                         if (str == null) {
                             mLuaState.LdoString(FileUtil.readStreamFromAssets(CustomViewActivity.this,"view.lua"));
                         }else {
                             mLuaState.LdoString(str);
                         }
+                        long endTime = System.currentTimeMillis();
+                        Log.e(TAG, "doString: "+(endTime-startTime));
+
                         mLuaState.getField(LuaState.LUA_GLOBALSINDEX,function);
                         mLuaState.pushJavaObject(getApplicationContext());// 第一个参数 context
                         mLuaState.pushJavaObject(linearLayout);// 第二个参数， Layout
@@ -123,7 +169,7 @@ public class CustomViewActivity extends Activity {
 
 
         long endTime = System.currentTimeMillis();
-        Log.e(TAG, "runOnUiThread: "+(endTime-startTime));
+        Log.e(TAG, "runOnUiThread: "+(endTime - startTime));
 
     }
 
@@ -133,6 +179,7 @@ public class CustomViewActivity extends Activity {
         LinearLayout linearLayout = new LinearLayout(context);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+        linearLayout.setGravity(Gravity.CENTER_HORIZONTAL);
         linearLayout.setLayoutParams(layoutParams);
 
 
@@ -226,6 +273,7 @@ public class CustomViewActivity extends Activity {
         linearLayout.setBackgroundColor(Color.LTGRAY);
         layoutParams.setMargins(MARGIN,MARGIN,MARGIN,MARGIN);
 
+
         // titlePic
         ImageView titleImg = new ImageView(context);
         titleImg.setImageResource(titlePic);
@@ -237,6 +285,7 @@ public class CustomViewActivity extends Activity {
         subTitleTv.setGravity(Gravity.CENTER_HORIZONTAL);
         //mainPic
         ImageView mainImg = new ImageView(context);
+
         mainImg.setImageResource(mainPic);
                 linearLayout.addView(titleImg);
         linearLayout.addView(subTitleTv);
@@ -272,15 +321,16 @@ public class CustomViewActivity extends Activity {
         int subTitleId = titleId + 100;
         subTitleTv.setText(subTitle);
         subTitleTv.setTextColor(Color.RED);
-        layoutParams.addRule(RelativeLayout.BELOW,titleId);
+        layoutParams.addRule(RelativeLayout.RIGHT_OF,titleId);
 
         RelativeLayout.LayoutParams ivParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
         ImageView iconIv = new ImageView(context);
 
         iconIv.setImageResource(icon);
         ivParams.addRule(RelativeLayout.BELOW,subTitleId);
-        ivParams.addRule(RelativeLayout.CENTER_VERTICAL);
-        ivParams.addRule(RelativeLayout.ALIGN_LEFT);
+        ivParams.addRule(RelativeLayout.CENTER_VERTICAL|RelativeLayout.ALIGN_LEFT);
+        ivParams.addRule(RelativeLayout.ALIGN_RIGHT);
+
 
         relativeLayout.addView(titleTv);
         relativeLayout.addView(subTitleTv,layoutParams);
@@ -314,6 +364,7 @@ public class CustomViewActivity extends Activity {
         ImageView iconIv = new ImageView(context);
 
         iconIv.setImageResource(icon);
+
         ivParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         ivParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 
@@ -325,7 +376,7 @@ public class CustomViewActivity extends Activity {
 
     }
 
-    public PercentRelativeLayout rectPercentView(Context context, String title,int titleId, String subTitle, int icon, boolean special) throws IOException {
+//    public PercentRelativeLayout rectPercentView(Context context, String title,int titleId, String subTitle, int icon, boolean special) throws IOException {
 
 //        XmlPullParser parser = Xml.newPullParser();
 //        try {
@@ -333,9 +384,9 @@ public class CustomViewActivity extends Activity {
 //        } catch (XmlPullParserException e) {
 //            e.printStackTrace();
 //        }
-        XmlPullParser parser = getResources().getXml(R.xml.attrs);
-        AttributeSet attrs = Xml.asAttributeSet(parser);
-        PercentRelativeLayout relativeLayout = new PercentRelativeLayout(context,attrs);
+//        XmlPullParser parser = getResources().getXml(R.xml.attrs);
+//        AttributeSet attrs = Xml.asAttributeSet(parser);
+//        PercentRelativeLayout relativeLayout = new PercentRelativeLayout(context,attrs);
 //        relativeLayout.setBackgroundColor(Color.WHITE);
 //        PercentRelativeLayout.LayoutParams layoutParams = new PercentRelativeLayout.LayoutParams(100,100);
 //        PercentRelativeLayout.LayoutParams layoutParams = new PercentRelativeLayout.LayoutParams(context,attrs);
@@ -346,11 +397,11 @@ public class CustomViewActivity extends Activity {
 //PercentRelativeLayout relativeLayout = new PercentRelativeLayout(context);
 
 
- PercentRelativeLayout.LayoutParams params = (PercentRelativeLayout.LayoutParams) relativeLayout.getLayoutParams();
-// This will currently return null, if it was not constructed from XML.
-        PercentLayoutHelper.PercentLayoutInfo info = params.getPercentLayoutInfo();
-        info.heightPercent = 0.60f;
-        relativeLayout.requestLayout();
+// PercentRelativeLayout.LayoutParams params = (PercentRelativeLayout.LayoutParams) relativeLayout.getLayoutParams();
+//// This will currently return null, if it was not constructed from XML.
+//        PercentLayoutHelper.PercentLayoutInfo info = params.getPercentLayoutInfo();
+//        info.heightPercent = 0.60f;
+//        relativeLayout.requestLayout();
 
 //        PercentRelativeLayout relativeLayout = new PercentRelativeLayout(context);
 //        relativeLayout.setBackgroundColor(Color.WHITE);
@@ -366,45 +417,45 @@ public class CustomViewActivity extends Activity {
 
 
 
-//        layoutParams.addRule(PercentRelativeLayout);
-        TextView titleTv = new TextView(context);
-//        titleTv.set
-        titleTv.setText(title);
-        titleTv.setTextColor(Color.BLUE);
-        titleTv.setId(titleId);
-        titleTv.setBackgroundColor(Color.YELLOW);
-        PercentRelativeLayout.LayoutParams tvPramas = new PercentRelativeLayout.LayoutParams(500,500);
-//                (PercentRelativeLayout.LayoutParams) titleTv.getLayoutParams();
-//
+////        layoutParams.addRule(PercentRelativeLayout);
+//        TextView titleTv = new TextView(context);
+////        titleTv.set
+//        titleTv.setText(title);
+//        titleTv.setTextColor(Color.BLUE);
+//        titleTv.setId(titleId);
+//        titleTv.setBackgroundColor(Color.YELLOW);
+//        PercentRelativeLayout.LayoutParams tvPramas = new PercentRelativeLayout.LayoutParams(500,500);
+////                (PercentRelativeLayout.LayoutParams) titleTv.getLayoutParams();
+////
 //        layoutParams.la
 //        PercentLayoutHelper.PercentLayoutInfo info = layoutParams.getPercentLayoutInfo();
 //        info.widthPercent = 0.80f;
 //        info.heightPercent = 0.50f;
 //        titleTv.requestLayout();
 
-
-        TextView subTitleTv = new TextView(context);
-        subTitleTv.setText(subTitle);
-        subTitleTv.setTextColor(Color.RED);
-        PercentRelativeLayout.LayoutParams subTitleTvParams = new PercentRelativeLayout.LayoutParams(PercentRelativeLayout.LayoutParams.WRAP_CONTENT,PercentRelativeLayout.LayoutParams.WRAP_CONTENT);
-        subTitleTvParams.addRule(PercentRelativeLayout.BELOW,titleId);
-
-
-
-        RelativeLayout.LayoutParams ivParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
-        ImageView iconIv = new ImageView(context);
-
-        iconIv.setImageResource(icon);
-        ivParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-        ivParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-
-//        relativeLayout.addView(titleTv,tvPramas);
-//        relativeLayout.addView(subTitleTv,subTitleTvParams);
-//        relativeLayout.addView(iconIv,ivParams);
-//        relativeLayout.requestLayout();
-        return relativeLayout;
-
-    }
+//
+//        TextView subTitleTv = new TextView(context);
+//        subTitleTv.setText(subTitle);
+//        subTitleTv.setTextColor(Color.RED);
+//        PercentRelativeLayout.LayoutParams subTitleTvParams = new PercentRelativeLayout.LayoutParams(PercentRelativeLayout.LayoutParams.WRAP_CONTENT,PercentRelativeLayout.LayoutParams.WRAP_CONTENT);
+//        subTitleTvParams.addRule(PercentRelativeLayout.BELOW,titleId);
+//
+//
+//
+//        RelativeLayout.LayoutParams ivParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
+//        ImageView iconIv = new ImageView(context);
+//
+//        iconIv.setImageResource(icon);
+//        ivParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+//        ivParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+//
+////        relativeLayout.addView(titleTv,tvPramas);
+////        relativeLayout.addView(subTitleTv,subTitleTvParams);
+////        relativeLayout.addView(iconIv,ivParams);
+////        relativeLayout.requestLayout();
+//        return relativeLayout;
+//
+//    }
 
 
 }

@@ -8,7 +8,8 @@ import java.util.ArrayList;
  */
 public class BDNDLSource implements Serializable{
 
-    private static final long serialVersionUID = -4403624125606565146L;
+
+    private static final long serialVersionUID = 6538973755153669738L;
     private String path;
     private String version;
     private ArrayList<String> includeFiles;

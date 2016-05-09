@@ -1,6 +1,10 @@
 package dev.bnna.androlua;
 
 import android.app.Activity;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.Shape;
 import android.os.Bundle;
 import android.os.SystemClock;
 
@@ -27,7 +31,13 @@ public class BDNDLUpdateActivity extends Activity {
     private void checkUpdate() {
 
 
+        ShapeDrawable shapeDrawable = new ShapeDrawable();
+        Shape s = new Shape() {
+            @Override
+            public void draw(Canvas canvas, Paint paint) {
 
+            }
+        };
         dynamicUpdate();
 
     }

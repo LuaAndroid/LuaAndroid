@@ -1,12 +1,18 @@
 package dev.bnna.androlua;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -16,7 +22,6 @@ import org.keplerproject.luajava.LuaState;
 import org.keplerproject.luajava.LuaStateFactory;
 
 import dev.bnna.androlua.utils.Constant;
-import dev.bnna.androlua.utils.DisplayUtil;
 import dev.bnna.androlua.utils.FileUtil;
 import dev.bnna.androlua.utils.NetUtil;
 
@@ -40,15 +45,23 @@ public class LuaActivity extends Activity implements OnClickListener {
 		mLuaState.openLibs();
 		initView();
         float scale = getResources().getDisplayMetrics().density;
-        Log.e(TAG, "onCreate: scale  " + scale );
+        getDisplay();
+    }
 
+    private void getDisplay() {
+        DisplayMetrics metrics = new DisplayMetrics();
+        WindowManager WM = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
+        Display display = WM.getDefaultDisplay();
+        display.getMetrics(metrics);
+        int height = metrics.heightPixels; // 屏幕高
+        int width = metrics.widthPixels; // 屏幕的宽
+        float scale = getResources().getDisplayMetrics().density;
 
-        Log.e(TAG, "onCreate: size"+ DisplayUtil.size(this,100));
 
     }
 
-	
-	private void initView() {
+
+    private void initView() {
 		findViewById(R.id.main_btn_1).setOnClickListener(this);
 		findViewById(R.id.main_btn_2).setOnClickListener(this);
 		findViewById(R.id.main_btn_3).setOnClickListener(this);
@@ -63,6 +76,7 @@ public class LuaActivity extends Activity implements OnClickListener {
 		mLayout = (LinearLayout) findViewById(R.id.layout);
         addLyout = (LinearLayout) findViewById(R.id.add_lyout);
 		mDisplay = (TextView) mLayout.findViewById(R.id.display);
+
 	}
 	
 	@Override
@@ -326,19 +340,38 @@ public class LuaActivity extends Activity implements OnClickListener {
 //                        mLuaState.setField(LuaState.LUA_GLOBALSINDEX, "resultKey");
 //                        mLuaState.getGlobal("resultKey");
 //                        mDisplay.setText(mLuaState.toString(-1));
+                        BDNDLSupport support = new BDNDLSupport();
+                        support.setEngineMaxVersion(10);
+                        support.setEngineMinVersion(2);
+                        support.setOsMaxVersion(8);
+                        support.setOsMinVersion(3);
 
 
-                        Button button = new Button(LuaActivity.this);
-                        button.setBackgroundColor(Color.GREEN);
 
+                        BDNDLModuleInfo info = new BDNDLModuleInfo();
+                        info.setModuleName("luajava");
+                        info.setPackageUrl("hello");
+                        ImageView button = new ImageView(LuaActivity.this);
+//                        button.setImageDrawable();
+//                        button.setImageBitmap();
+//                        button.setBackgroundColor(Color.GREEN);
+                        try {
                         mLuaState.LdoString(str);
                         mLuaState.getField(LuaState.LUA_GLOBALSINDEX, "addButton");
 
                         mLuaState.pushJavaObject(getApplicationContext());// 第一个参数 context
                         mLuaState.pushJavaObject(addLyout);// 第二个参数， Layout
-                        mLuaState.call(2, 0);// 2个参数，0个返回值
-
-
+//                            mLuaState.pushObjectValue(support);
+                        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.icon);
+                            Drawable drawable =new BitmapDrawable(bitmap);
+                        mLuaState.pushJavaObject(drawable);
+                        mLuaState.pushJavaObject(bitmap);
+                        mLuaState.pushJavaObject(support);
+//                            mLuaState.push
+                        mLuaState.call(5, 0);// 2个参数，0个返回值
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
             }
