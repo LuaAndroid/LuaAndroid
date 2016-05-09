@@ -719,3 +719,4 @@ public final class LuaJavaAPI
     return obj;
   }
 
+}
