@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/main_btn_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="runStatement"
+        android:text="运行Lua脚本语句" />
+
+    <Button
+        android:id="@+id/main_btn_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="runFile"
+        android:text="运行Lua脚本文件" />
+
+    <Button
+        android:id="@+id/main_btn_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="callAndroidAPI"
+        android:text="调用 Android API" />
+   
+     <Button
+        android:id="@+id/main_btn_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="launchSetting"
+        android:text="启动设置" />
+     <Button
+        android:id="@+id/main_btn_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="launchActivity"
+        android:text="启动Activity" />
+     <Button
+        android:id="@+id/main_btn_6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="addButton"
+        android:text="添加Button" />
+    <Button
+        android:id="@+id/main_btn_7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        
+        android:text="输出log" />
+
+    <Button
+        android:id="@+id/main_btn_8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Http From Java" />
+
+    <Button
+        android:id="@+id/main_btn_9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SDCard" />
+
+    <ImageView
+        android:id="@+id/iv_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#eeeeee"
+        android:id="@+id/add_lyout"
+        android:orientation="horizontal">
+    </LinearLayout>
+
+</LinearLayout>
