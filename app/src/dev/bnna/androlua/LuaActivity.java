@@ -328,25 +328,24 @@ public class LuaActivity extends Activity implements OnClickListener {
             @Override
             public void run() {
                 super.run();
-                final String str =  NetUtil.getString(Constant.TEST);
+//                final String str =  NetUtil.getString(Constant.TEST);
 //                Log.e("lua",str);
                 LuaActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
 //
                         try {
-                        mLuaState.LdoString(str);
+//
+                            mLuaState.LdoString(FileUtil.readStreamFromAssets(getApplicationContext(),Constant.TEST));
+
                         mLuaState.getField(LuaState.LUA_GLOBALSINDEX, "addButton");
 
                         mLuaState.pushJavaObject(getApplicationContext());// 第一个参数 context
                         mLuaState.pushJavaObject(addLyout);// 第二个参数， Layout
-//                            mLuaState.pushObjectValue(support);
                         Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.icon);
                             Drawable drawable =new BitmapDrawable(bitmap);
                         mLuaState.pushJavaObject(drawable);
                         mLuaState.pushJavaObject(bitmap);
-//                        mLuaState.pushJavaObject(support);
-//                            mLuaState.push
                         mLuaState.call(4, 0);// 2个参数，0个返回值
                         } catch (Exception e) {
                             e.printStackTrace();

@@ -1,9 +1,7 @@
+--require("log")
 
 
 
-function printlog(str)
-    return nmdebug.logd("lua log : "..str)
-end
 --此函数由Java代码调用。接受一个参数，并返回一个字符串
 function getFunctionInLuaFile(key)
     return ' Function in Lua file . Return : ' .. key .. '!'
@@ -57,26 +55,21 @@ end
 -- lua 实现方法，增加一个Button，点击Button， Toast显示Button标题。
 function addButton(context, layout, drawable, bitmap, obj)
     btn = luajava.newInstance("android.widget.ImageView", context)
---    --    btn = luajava.newInstance("android.widget.Button",context)
---
---    --
---    local androidString = luajava.bindClass("dev.bnna.androlua.R$string")
---    --    btn:setText(androidString.hello)
---
---    -- 设置nackgroudColor 成功
---    -- local color = luajava.newInstance("android.graphics.Color")
---    -- btn:setBackgroundColor(color.red(color,70))
---    -- btn:setBackgroundColor(color.RED)
---    --
---    --    local drawable = luajava.bindClass("dev.bnna.androlua.R$drawable")
---    --    btn:setImageDrawable(drawable.icon)
---    --    btn:setImageDrawable(drawable)
---        btn:setImageBitmap(bitmap)
---    printlog("type "..type(bitmap))
 
 
---    layout:addView(btn)
-    tryCatch(requie("log"))
+
+    -- 设置nackgroudColor 成功
+    -- local color = luajava.newInstance("android.graphics.Color")
+    -- btn:setBackgroundColor(color.red(color,70))
+    -- btn:setBackgroundColor(color.RED)
+    --
+--        local drawable = luajava.bindClass("dev.bnna.androlua.R$drawable")
+--        btn:setImageDrawable(drawable.icon)
+--        btn:setImageDrawable(drawable)
+        btn:setImageBitmap(bitmap)
+
+        layout:addView(btn)
+
 end
 
 function getObj(obj)
@@ -98,13 +91,24 @@ function xTryCatch(fun)
     printlog("ret:" .. (ret and "true" or "false") .. " \nerrMessage:" .. (errMessage or "null"));
 end
 
+function writeout()
 
-function FileSaveLoad()
-    local file = io.open("logger.txt", "r");
+--    local file = io.open("logger.txt", "r");
 
-    file = io.open("logger.txt", "w");
-    assert(file);
+--    local file = io.open("logger.txt", "w");
+--    assert(file);
+--
+--    local str = {}
+--    for key in pairs(_G) do
+--        print(key)
+--        file:write(key.."\n");
+--    end
+--
+--    --    file:write("hello world");
+--    file:flush();
+--    file:close();
 
-    file:write("hello world");
-    file:close();
+end
+function printlog(str)
+    return nmdebug.logd("lua log : "..str)
 end
