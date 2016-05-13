@@ -21,24 +21,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29187c2f-7321-475e-8a90-7368cc60383d" name="Default" comment="1.  添加文件压缩、解压，替换更新&#10;2.  添加更新Module&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/lua_1.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/wenshengping.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/name.lua" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/res/drawable/shape_rect.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/raw/textlua" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/mockable-android-23.jar" afterPath="$PROJECT_DIR$/build/generated/mockable-android-23.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/res/drawable-hdpi/icon_arrows_gray_right.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/res/drawable-xhdpi/icon_arrows_gray_right.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/dkjson.lua" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/jsondata.lua" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/logger" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/nuomiJson.lua" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/LuaScriptServer.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/girl.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/greet.lua" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/json.lua" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/name" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/name.lua" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/percent_view.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/testimport.lua" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/libs/armeabi-v7a/libluajava.so" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/libs/armeabi/libluajava.so" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/libs/mips/libluajava.so" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/libs/x86/libluajava.so" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/obj/local/armeabi-v7a/libluajava.so" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/obj/local/armeabi-v7a/objs/luajava/luajava.o" afterPath="$PROJECT_DIR$/app/obj/local/armeabi-v7a/objs/luajava/luajava.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/log.lua" afterPath="$PROJECT_DIR$/app/assets/log.lua" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/test.lua" afterPath="$PROJECT_DIR$/app/assets/test.lua" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/view.lua" afterPath="$PROJECT_DIR$/app/assets/view.lua" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/res/layout/activity_update.xml" afterPath="$PROJECT_DIR$/app/res/layout/activity_update.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/dev/bnna/androlua/BDNDLSource.java" afterPath="$PROJECT_DIR$/app/src/dev/bnna/androlua/BDNDLSource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/dev/bnna/androlua/BDNDLSupport.java" afterPath="$PROJECT_DIR$/app/src/dev/bnna/androlua/BDNDLSupport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/dev/bnna/androlua/BDNDLUpdateActivity.java" afterPath="$PROJECT_DIR$/app/src/dev/bnna/androlua/BDNDLUpdateActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/obj/local/armeabi-v7a/objs/luajava/luajava.o.d" afterPath="$PROJECT_DIR$/app/obj/local/armeabi-v7a/objs/luajava/luajava.o.d" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/res/layout/customview_activity.xml" afterPath="$PROJECT_DIR$/app/res/layout/customview_activity.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/res/layout/lua_main.xml" afterPath="$PROJECT_DIR$/app/res/layout/lua_main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/dev/bnna/androlua/CustomViewActivity.java" afterPath="$PROJECT_DIR$/app/src/dev/bnna/androlua/CustomViewActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/dev/bnna/androlua/LuaActivity.java" afterPath="$PROJECT_DIR$/app/src/dev/bnna/androlua/LuaActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/dev/bnna/androlua/utils/Constant.java" afterPath="$PROJECT_DIR$/app/src/dev/bnna/androlua/utils/Constant.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/dev/bnna/androlua/utils/NetUtil.java" afterPath="$PROJECT_DIR$/app/src/dev/bnna/androlua/utils/NetUtil.java" />
     </list>
     <list id="e4ab1d27-5756-4be9-9c5a-c062b9461676" name="New changelist" comment="New changelist" />
     <ignored path="LuaAndroid.iws" />
@@ -132,8 +149,29 @@
         <entry file="file://$PROJECT_DIR$/app/src/dev/bnna/androlua/LuaActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="269" column="60" selection-start-line="269" selection-start-column="60" selection-end-line="269" selection-end-column="60" />
+              <caret line="345" column="48" selection-start-line="345" selection-start-column="34" selection-end-line="345" selection-end-column="48" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomViewActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/dev/bnna/androlua/CustomViewActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="155" column="0" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
+              <folding>
+                <element signature="e#2197#4028#0" expanded="true" />
+                <element signature="e#4027#4028#0" expanded="true" />
+                <element signature="e#5290#6476#0" expanded="true" />
+                <element signature="e#5484#6450#0" expanded="true" />
+                <element signature="e#6449#6450#0" expanded="true" />
+                <element signature="e#6475#6476#0" expanded="true" />
+                <element signature="docComment;method#viewWithText#0;class#CustomViewActivity#0" expanded="true" />
+                <element signature="docComment;method#viewWithOneIcon#0;class#CustomViewActivity#0" expanded="true" />
+                <element signature="docComment;method#rectVView#0;class#CustomViewActivity#0" expanded="true" />
+                <marker date="1463120851000" expanded="true" signature="18615:18620" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -142,82 +180,95 @@
         <entry file="file://$PROJECT_DIR$/app/assets/view.lua">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LuaJavaAPI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/org/keplerproject/luajava/LuaJavaAPI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="460" column="9" selection-start-line="460" selection-start-column="9" selection-end-line="460" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="luajava.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/jni/luajava/luajava.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="2703" column="0" selection-start-line="2703" selection-start-column="0" selection-end-line="2703" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomViewActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/dev/bnna/androlua/CustomViewActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5915493">
-              <caret line="386" column="40" selection-start-line="386" selection-start-column="40" selection-end-line="387" selection-end-column="40" />
+              <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
               <folding>
-                <marker date="1462783383000" expanded="true" signature="18630:18635" placeholder="{...}" />
+                <element signature="e#21470#21540#0" expanded="true" />
+                <element signature="e#22540#22632#0" expanded="true" />
+                <element signature="e#22687#22715#0" expanded="true" />
+                <element signature="e#27111#27261#0" expanded="true" />
+                <element signature="e#27764#27945#0" expanded="true" />
+                <element signature="e#31103#31337#0" expanded="true" />
+                <element signature="e#32852#33057#0" expanded="true" />
+                <element signature="e#34409#34524#0" expanded="true" />
+                <element signature="e#35722#35990#0" expanded="true" />
+                <marker date="1463122569000" expanded="true" signature="13235:13298" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LinearLayout.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-23/android/widget/LinearLayout.java">
+      <file leaf-file-name="nuomiJson.lua" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/nuomiJson.lua">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="69" column="38" selection-start-line="69" selection-start-column="28" selection-end-line="69" selection-end-column="38" />
+              <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+              <folding>
+                <element signature="e#687#837#0" expanded="true" />
+                <element signature="e#1291#1472#0" expanded="true" />
+                <element signature="e#4230#4464#0" expanded="true" />
+                <element signature="e#5845#6050#0" expanded="true" />
+                <element signature="e#7286#7401#0" expanded="true" />
+                <element signature="e#8483#8751#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.lua" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/test.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.321429">
+              <caret line="102" column="28" selection-start-line="102" selection-start-column="28" selection-end-line="102" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gravity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-23/android/view/Gravity.java">
+      <file leaf-file-name="logger" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/logger">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="91" column="28" selection-start-line="91" selection-start-column="28" selection-end-line="91" selection-end-column="28" />
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NetUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/dev/bnna/androlua/utils/NetUtil.java">
+      <file leaf-file-name="file.lua" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/file.lua">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="33" column="43" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
+              <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="customview_activity.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/res/layout/customview_activity.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
+      <file leaf-file-name="log.lua" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/log.lua">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="34" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="34" />
+              <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jsondata.lua" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/jsondata.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dkjson.lua" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/assets/dkjson.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.35064936">
+              <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -2154,13 +2205,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/app.iml" />
-        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
-        <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/app/res/values/attrs.xml" />
-        <option value="$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/percent/22.2.0/res/values/values.xml" />
-        <option value="$PROJECT_DIR$/app/res/xml/percent_view.xml" />
         <option value="$PROJECT_DIR$/app/res/layout/percent_view.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/assets/view1.lua" />
@@ -2180,8 +2224,6 @@
         <option value="$PROJECT_DIR$/app/assets/name" />
         <option value="$PROJECT_DIR$/app/src/org/keplerproject/luajava/LuaJavaAPI.java" />
         <option value="$PROJECT_DIR$/app/src/org/keplerproject/luajava/LuaStateFactory.java" />
-        <option value="$PROJECT_DIR$/app/res/layout/lua_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/dev/bnna/androlua/utils/NetUtil.java" />
         <option value="$PROJECT_DIR$/app/assets/testimport.lua" />
         <option value="$PROJECT_DIR$/app/src/dev/bnna/androlua/DyModuleConfigFile.java" />
         <option value="$PROJECT_DIR$/app/src/dev/bnna/androlua/DySource.java" />
@@ -2194,17 +2236,26 @@
         <option value="$PROJECT_DIR$/app/src/dev/bnna/androlua/BNDDLUpdateActivity.java" />
         <option value="$PROJECT_DIR$/app/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/dev/bnna/androlua/BDNDLModuleInfo.java" />
-        <option value="$PROJECT_DIR$/app/res/layout/customview_activity.xml" />
         <option value="$PROJECT_DIR$/app/src/dev/bnna/androlua/BDNDLSource.java" />
         <option value="$PROJECT_DIR$/app/src/dev/bnna/androlua/BDNDLSupport.java" />
         <option value="$PROJECT_DIR$/app/res/drawable/shape_rect" />
         <option value="$PROJECT_DIR$/app/res/layout/activity_update.xml" />
         <option value="$PROJECT_DIR$/app/src/dev/bnna/androlua/BDNDLUpdateActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/dev/bnna/androlua/utils/NetUtil.java" />
+        <option value="$PROJECT_DIR$/app/gen/dev/bnna/androlua/R.java" />
+        <option value="$PROJECT_DIR$/app/res/layout/customview_activity.xml" />
+        <option value="$PROJECT_DIR$/app/res/layout/lua_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/org/keplerproject/luajava/Console.java" />
         <option value="$PROJECT_DIR$/app/src/dev/bnna/androlua/utils/Constant.java" />
-        <option value="$PROJECT_DIR$/app/assets/test.lua" />
-        <option value="$PROJECT_DIR$/app/src/dev/bnna/androlua/LuaActivity.java" />
-        <option value="$PROJECT_DIR$/app/assets/view.lua" />
         <option value="$PROJECT_DIR$/app/src/dev/bnna/androlua/CustomViewActivity.java" />
+        <option value="$PROJECT_DIR$/app/assets/import.lua" />
+        <option value="$PROJECT_DIR$/app/jni/luajava/luajava.c" />
+        <option value="$PROJECT_DIR$/app/assets/view.lua" />
+        <option value="$PROJECT_DIR$/app/src/dev/bnna/androlua/LuaActivity.java" />
+        <option value="$PROJECT_DIR$/app/assets/log.lua" />
+        <option value="$PROJECT_DIR$/app/assets/jsondata.lua" />
+        <option value="$PROJECT_DIR$/app/assets/nuomiJson.lua" />
+        <option value="$PROJECT_DIR$/app/assets/test.lua" />
       </list>
     </option>
   </component>
@@ -2216,7 +2267,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="777" />
+    <option name="height" value="731" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -2268,6 +2319,16 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LuaAndroid" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -2282,18 +2343,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LuaAndroid" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2380,12 +2429,94 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="jni" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LuaAndroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LuaAndroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jni" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="luajava" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LuaAndroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LuaAndroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jni" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lua" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LuaAndroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LuaAndroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LuaAndroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LuaAndroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2393,8 +2524,8 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="device.picker.selection" value="APU0216317004559" />
-    <property name="SearchEverywhereHistoryKey" value="cons&#9;FILE&#9;file:///Users/wenshengping/github/LuaAndroid/app/src/dev/bnna/androlua/utils/Constant.java&#10;cu&#9;FILE&#9;file:///Users/wenshengping/github/LuaAndroid/app/src/dev/bnna/androlua/CustomViewActivity.java&#10;luaa&#9;FILE&#9;file:///Users/wenshengping/github/LuaAndroid/app/src/dev/bnna/androlua/LuaActivity.java&#10;luajava&#9;FILE&#9;file:///Users/wenshengping/github/LuaAndroid/src/org/keplerproject/luajava/LuaJavaAPI.java" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/repository/Android/shoubai/project-nuomi" />
+    <property name="SearchEverywhereHistoryKey" value="cons&#9;FILE&#9;file:///Users/wenshengping/github/LuaAndroid/app/src/dev/bnna/androlua/utils/Constant.java&#10;constan&#9;FILE&#9;file:///Users/wenshengping/github/LuaAndroid/app/src/dev/bnna/androlua/utils/Constant.java&#10;cu&#9;FILE&#9;file:///Users/wenshengping/github/LuaAndroid/app/src/dev/bnna/androlua/CustomViewActivity.java&#10;luaa&#9;FILE&#9;file:///Users/wenshengping/github/LuaAndroid/app/src/dev/bnna/androlua/LuaActivity.java&#10;luajava&#9;FILE&#9;file:///Users/wenshengping/github/LuaAndroid/src/org/keplerproject/luajava/LuaJavaAPI.java" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/repository/Android/sdk/bainuosdk_refact" />
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="project.structure.last.edited" value="Problems" />
@@ -2402,15 +2533,15 @@
     <property name="project.structure.side.proportion" value="0.2632184" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/assets" />
+      <recent name="$PROJECT_DIR$/app/res/drawable-hdpi" />
+      <recent name="$PROJECT_DIR$/app/res/drawable-xhdpi" />
+      <recent name="$PROJECT_DIR$/app/libs" />
+      <recent name="$PROJECT_DIR$/app/res/xml" />
+    </key>
     <key name="android.template.packageName">
       <recent name="dev.bnna.androlua" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/libs" />
-      <recent name="$PROJECT_DIR$/app/assets" />
-      <recent name="$PROJECT_DIR$/app/res/xml" />
-      <recent name="$PROJECT_DIR$/app/assets/image" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app" />
@@ -2803,15 +2934,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="777" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1280" height="731" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2752443" sideWeight="0.7095469" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3257329" sideWeight="0.7095469" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928804" sideWeight="0.508046" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31060606" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20032573" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37459284" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39739415" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29153094" sideWeight="0.29045308" order="0" side_tool="true" content_ui="tabs" />
@@ -2824,7 +2956,7 @@
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928804" sideWeight="0.49195403" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21359223" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18608414" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928804" sideWeight="0.49195403" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="DrawableViewer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -2833,35 +2965,34 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21763754" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="DrawableViewer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4495114" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18078175" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29153094" sideWeight="0.29045308" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29153094" sideWeight="0.29045308" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2198697" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29153094" sideWeight="0.29045308" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928804" sideWeight="0.49195403" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23867314" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21359223" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2184466" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21763754" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928804" sideWeight="0.508046" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2752443" sideWeight="0.7095469" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39739415" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23452769" sideWeight="0.40938511" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -2898,7 +3029,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/dev/bnna/androlua/CustomViewActivity.java</url>
-          <line>143</line>
+          <line>140</line>
           <properties />
           <option name="timeStamp" value="55" />
         </line-breakpoint>
@@ -2910,7 +3041,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/dev/bnna/androlua/utils/NetUtil.java</url>
-          <line>44</line>
+          <line>43</line>
           <properties />
           <option name="timeStamp" value="75" />
         </line-breakpoint>
@@ -2933,106 +3064,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/res/layout/customview_activity.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="34" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/jni/lua/llex.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/jni/lua/liolib.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="159.75">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/org/keplerproject/luajava/LuaObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="13" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/import.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="64" column="39" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/org/keplerproject/luajava/LuaInvocationHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="76" column="45" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/org/keplerproject/luajava/Printable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/org/keplerproject/luajava/CPtr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="13" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="20" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/testimport.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/res/layout/activity_update.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/file.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/dev/bnna/androlua/utils/ZipUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3100,15 +3131,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/json.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3162,43 +3184,42 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/res/layout/main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/res/layout/percent_view.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/res/layout/activity_update.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/res/layout/activity_update.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="41" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="41" />
           <folding />
         </state>
       </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/res/drawable/shape_rect.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="29" column="16" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3206,7 +3227,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3217,18 +3237,145 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/dev/bnna/androlua/utils/FileUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="54" column="25" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/org/keplerproject/luajava/LuaJavaAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="460" column="9" selection-start-line="460" selection-start-column="9" selection-end-line="460" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-23/android/widget/LinearLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="69" column="38" selection-start-line="69" selection-start-column="28" selection-end-line="69" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/dev/bnna/androlua/utils/NetUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="43" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
+          <caret line="96" column="18" selection-start-line="96" selection-start-column="18" selection-end-line="96" selection-end-column="18" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-23/android/graphics/Color.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/gen/dev/bnna/androlua/R.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="189" column="31" selection-start-line="189" selection-start-column="31" selection-end-line="189" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-23/android/widget/TextView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37471265">
+          <caret line="2682" column="35" selection-start-line="2682" selection-start-column="35" selection-end-line="2682" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/res/layout/customview_activity.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/res/layout/lua_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="64" column="11" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-23/android/view/Gravity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="91" column="28" selection-start-line="91" selection-start-column="28" selection-end-line="91" selection-end-column="28" />
+          <caret line="69" column="34" selection-start-line="69" selection-start-column="28" selection-end-line="69" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#19917#0" expanded="false" />
+            <element signature="docComment;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#NO_GRAVITY#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#AXIS_SPECIFIED#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#AXIS_PULL_BEFORE#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#AXIS_PULL_AFTER#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#AXIS_CLIP#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#AXIS_X_SHIFT#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#AXIS_Y_SHIFT#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#TOP#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#BOTTOM#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#LEFT#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#RIGHT#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#CENTER_VERTICAL#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#FILL_VERTICAL#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#CENTER_HORIZONTAL#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#FILL_HORIZONTAL#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#CENTER#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#FILL#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#CLIP_VERTICAL#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#CLIP_HORIZONTAL#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#RELATIVE_LAYOUT_DIRECTION#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#HORIZONTAL_GRAVITY_MASK#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#VERTICAL_GRAVITY_MASK#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#DISPLAY_CLIP_VERTICAL#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#DISPLAY_CLIP_HORIZONTAL#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#START#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#END#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;field#RELATIVE_HORIZONTAL_GRAVITY_MASK#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;method#apply#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;method#apply#1;class#Gravity#0" expanded="false" />
+            <element signature="docComment;method#apply#2;class#Gravity#0" expanded="false" />
+            <element signature="docComment;method#apply#3;class#Gravity#0" expanded="false" />
+            <element signature="docComment;method#applyDisplay#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;method#applyDisplay#1;class#Gravity#0" expanded="false" />
+            <element signature="docComment;method#isVertical#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;method#isHorizontal#0;class#Gravity#0" expanded="false" />
+            <element signature="docComment;method#getAbsoluteGravity#0;class#Gravity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-23/android/app/Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="105.755844">
+          <caret line="5506" column="22" selection-start-line="5506" selection-start-column="22" selection-end-line="5506" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/org/keplerproject/luajava/Console.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10140845">
+          <caret line="47" column="7" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/dev/bnna/androlua/utils/Constant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65915495">
+          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -3241,18 +3388,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/test.lua">
+    <entry file="file://$PROJECT_DIR$/app/assets/import.lua">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/dev/bnna/androlua/utils/FileUtil.java">
+    <entry file="file://$PROJECT_DIR$/app/jni/luajava/luajava.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.0714285">
+          <caret line="1875" column="40" selection-start-line="1875" selection-start-column="32" selection-end-line="1875" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/dev/bnna/androlua/CustomViewActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="25" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+          <caret line="155" column="0" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
+          <folding>
+            <element signature="e#2197#4028#0" expanded="true" />
+            <element signature="e#4027#4028#0" expanded="true" />
+            <element signature="e#5290#6476#0" expanded="true" />
+            <element signature="e#5484#6450#0" expanded="true" />
+            <element signature="e#6449#6450#0" expanded="true" />
+            <element signature="e#6475#6476#0" expanded="true" />
+            <element signature="docComment;method#viewWithText#0;class#CustomViewActivity#0" expanded="true" />
+            <element signature="docComment;method#viewWithOneIcon#0;class#CustomViewActivity#0" expanded="true" />
+            <element signature="docComment;method#rectVView#0;class#CustomViewActivity#0" expanded="true" />
+            <marker date="1463120851000" expanded="true" signature="18615:18620" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/view.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+          <folding>
+            <element signature="e#21470#21540#0" expanded="true" />
+            <element signature="e#22540#22632#0" expanded="true" />
+            <element signature="e#22687#22715#0" expanded="true" />
+            <element signature="e#27111#27261#0" expanded="true" />
+            <element signature="e#27764#27945#0" expanded="true" />
+            <element signature="e#31103#31337#0" expanded="true" />
+            <element signature="e#32852#33057#0" expanded="true" />
+            <element signature="e#34409#34524#0" expanded="true" />
+            <element signature="e#35722#35990#0" expanded="true" />
+            <marker date="1463122569000" expanded="true" signature="13235:13298" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/dev/bnna/androlua/LuaActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="345" column="48" selection-start-line="345" selection-start-column="34" selection-end-line="345" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jni/lua/luaconf.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6009852">
+          <caret line="593" column="2" selection-start-line="593" selection-start-column="2" selection-end-line="593" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jni/lua/loadlib.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33251232">
+          <caret line="617" column="17" selection-start-line="617" selection-start-column="17" selection-end-line="617" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/file.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -3260,77 +3477,55 @@
     <entry file="file://$PROJECT_DIR$/app/assets/log.lua">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/dev/bnna/androlua/utils/Constant.java">
+    <entry file="file://$PROJECT_DIR$/app/assets/nuomiJson.lua">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/dev/bnna/androlua/LuaActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="269" column="60" selection-start-line="269" selection-start-column="60" selection-end-line="269" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/res/layout/customview_activity.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="34" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-23/android/widget/LinearLayout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="69" column="38" selection-start-line="69" selection-start-column="28" selection-end-line="69" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/org/keplerproject/luajava/LuaJavaAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="460" column="9" selection-start-line="460" selection-start-column="9" selection-end-line="460" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/jni/luajava/luajava.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2703" column="0" selection-start-line="2703" selection-start-column="0" selection-end-line="2703" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/view.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/dev/bnna/androlua/CustomViewActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5915493">
-          <caret line="386" column="40" selection-start-line="386" selection-start-column="40" selection-end-line="387" selection-end-column="40" />
+          <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
           <folding>
-            <marker date="1462783383000" expanded="true" signature="18630:18635" placeholder="{...}" />
+            <element signature="e#687#837#0" expanded="true" />
+            <element signature="e#1291#1472#0" expanded="true" />
+            <element signature="e#4230#4464#0" expanded="true" />
+            <element signature="e#5845#6050#0" expanded="true" />
+            <element signature="e#7286#7401#0" expanded="true" />
+            <element signature="e#8483#8751#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/test.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.321429">
+          <caret line="102" column="28" selection-start-line="102" selection-start-column="28" selection-end-line="102" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/logger">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/jsondata.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/dkjson.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35064936">
+          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>

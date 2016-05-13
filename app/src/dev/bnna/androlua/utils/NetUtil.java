@@ -40,7 +40,6 @@ public class NetUtil {
             conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setDoInput(true);
-            conn.setConnectTimeout(3000);
             conn.connect();
             int code = conn.getResponseCode();
             if (code == 200) {

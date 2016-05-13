@@ -1,3 +1,9 @@
+
+
+
+function printlog(str)
+    return nmdebug.logd("lua log : "..str)
+end
 --此函数由Java代码调用。接受一个参数，并返回一个字符串
 function getFunctionInLuaFile(key)
     return ' Function in Lua file . Return : ' .. key .. '!'
@@ -51,54 +57,26 @@ end
 -- lua 实现方法，增加一个Button，点击Button， Toast显示Button标题。
 function addButton(context, layout, drawable, bitmap, obj)
     btn = luajava.newInstance("android.widget.ImageView", context)
-    --    btn = luajava.newInstance("android.widget.Button",context)
+--    --    btn = luajava.newInstance("android.widget.Button",context)
+--
+--    --
+--    local androidString = luajava.bindClass("dev.bnna.androlua.R$string")
+--    --    btn:setText(androidString.hello)
+--
+--    -- 设置nackgroudColor 成功
+--    -- local color = luajava.newInstance("android.graphics.Color")
+--    -- btn:setBackgroundColor(color.red(color,70))
+--    -- btn:setBackgroundColor(color.RED)
+--    --
+--    --    local drawable = luajava.bindClass("dev.bnna.androlua.R$drawable")
+--    --    btn:setImageDrawable(drawable.icon)
+--    --    btn:setImageDrawable(drawable)
+--        btn:setImageBitmap(bitmap)
+--    printlog("type "..type(bitmap))
 
-    -- 
-    local androidString = luajava.bindClass("dev.bnna.androlua.R$string")
-    --    btn:setText(androidString.hello)
 
-    -- 设置nackgroudColor 成功
-    -- local color = luajava.newInstance("android.graphics.Color")
-    -- btn:setBackgroundColor(color.red(color,70))
-    -- btn:setBackgroundColor(color.RED)
-    -- 
-    --    local drawable = luajava.bindClass("dev.bnna.androlua.R$drawable")
-    --    btn:setImageDrawable(drawable.icon)
-    --    btn:setImageDrawable(drawable)
-        btn:setImageBitmap(bitmap)
-
-    printlog(type(bitmap))
---    printlog(bitmap.getWidth())
-    button_cb = {
-        onClick = function(v)
-            print(tostring(v))
-            local Toast = luajava.bindClass('android.widget.Toast')
-            Toast:makeText(context, v:getText(), Toast.LENGTH_SHORT):show()
-        end
-    }
-    local listener = luajava.createProxy("android.view.View$OnClickListener", button_cb)
-
-    --[[ -- 第二种方法Listener实现方法
-    local listener = luajava.createProxy("android.view.View$OnClickListener", {
-        
-            onClick = function(v)
-                print(tostring(v))
-                local Toast = luajava.bindClass('android.widget.Toast')
-                Toast:makeText(context, v:getText(), Toast.LENGTH_SHORT):show()
-            end
-        
-    })
-    ]] --
-    btn:setOnClickListener(listener)
-
-    layout:addView(btn)
-    --    local support = luajava.bindClass('dev.bnna.androlua.BDNDLSource')
---    minVersion = obj:getEngineMaxVersion()
-
-    tryCatch(getObj(obj))
---    xTryCatch(getObj(obj))
-    --    printlog("minVersion" + minVersion);
-    --    xTryCatch(getObj(obj))
+--    layout:addView(btn)
+    tryCatch(requie("log"))
 end
 
 function getObj(obj)
@@ -120,6 +98,13 @@ function xTryCatch(fun)
     printlog("ret:" .. (ret and "true" or "false") .. " \nerrMessage:" .. (errMessage or "null"));
 end
 
-local function printlog(str)
-    nmdebug.logd("lua log : " .. str)
+
+function FileSaveLoad()
+    local file = io.open("logger.txt", "r");
+
+    file = io.open("logger.txt", "w");
+    assert(file);
+
+    file:write("hello world");
+    file:close();
 end

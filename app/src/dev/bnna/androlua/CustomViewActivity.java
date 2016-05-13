@@ -7,10 +7,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.util.Xml;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
@@ -23,7 +21,6 @@ import android.widget.Toast;
 
 import org.keplerproject.luajava.LuaState;
 import org.keplerproject.luajava.LuaStateFactory;
-import org.xmlpull.v1.XmlPullParser;
 
 import dev.bnna.androlua.utils.Constant;
 import dev.bnna.androlua.utils.FileUtil;
@@ -75,9 +72,9 @@ public class CustomViewActivity extends Activity {
                 final String str =  NetUtil.getString(path);
 //
 
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
+//                runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
                         DisplayMetrics metrics = new DisplayMetrics();
                         WindowManager WM = (WindowManager) CustomViewActivity.this.getSystemService(Context.WINDOW_SERVICE);
                         Display display = WM.getDefaultDisplay();
@@ -101,8 +98,8 @@ public class CustomViewActivity extends Activity {
                         mLuaState.call(4, 0);// 2个参数，0个返回值
 
                     }
-                });
-            }
+//                });
+//            }
         }.start();
     }
 
@@ -206,8 +203,8 @@ public class CustomViewActivity extends Activity {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT,1);
         layoutParams.gravity = Gravity.CENTER_HORIZONTAL;
         layoutParams.setMargins(MARGIN,MARGIN,MARGIN,MARGIN);
-
-
+        layoutParams.gravity = Gravity.BOTTOM;
+//        layoutParams.
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         linearLayout.setLayoutParams(layoutParams);
         linearLayout.setBackgroundColor(Color.LTGRAY);
@@ -215,10 +212,12 @@ public class CustomViewActivity extends Activity {
         Bitmap bitmap = BitmapFactory.decodeFile(FileUtil.getSDCARDFilePath("icon.png"));
         // titlePic
         ImageView titleImg = new ImageView(context);
+
 //        titleImg.setImageResource(titlePic);
         titleImg.setImageBitmap(bitmap);
         //subTitleText
         TextView subTitleTv = new TextView(context);
+
         subTitleTv.setText(subTitleText);
         subTitleTv.setTextColor(Color.BLACK);
         subTitleTv.setGravity(Gravity.CENTER_HORIZONTAL);
@@ -226,6 +225,7 @@ public class CustomViewActivity extends Activity {
 
         //subTitleText
         TextView specialTitleTV = new TextView(context);
+
         specialTitleTV.setText(specialTitle);
         specialTitleTV.setTextColor(Color.BLACK);
         specialTitleTV.setGravity(Gravity.CENTER_HORIZONTAL);
@@ -273,7 +273,6 @@ public class CustomViewActivity extends Activity {
         linearLayout.setBackgroundColor(Color.LTGRAY);
         layoutParams.setMargins(MARGIN,MARGIN,MARGIN,MARGIN);
 
-
         // titlePic
         ImageView titleImg = new ImageView(context);
         titleImg.setImageResource(titlePic);
@@ -283,6 +282,7 @@ public class CustomViewActivity extends Activity {
         TextView subTitleTv = new TextView(context);
         subTitleTv.setText(subTitleText);
         subTitleTv.setGravity(Gravity.CENTER_HORIZONTAL);
+
         //mainPic
         ImageView mainImg = new ImageView(context);
 
@@ -364,7 +364,6 @@ public class CustomViewActivity extends Activity {
         ImageView iconIv = new ImageView(context);
 
         iconIv.setImageResource(icon);
-
         ivParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         ivParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 

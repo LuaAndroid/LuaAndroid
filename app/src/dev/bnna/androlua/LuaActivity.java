@@ -278,7 +278,6 @@ public class LuaActivity extends Activity implements OnClickListener {
 
     public void showImage(){
 //
-
 //        final String url = "http://f.hiphotos.baidu.com/image/w%3D2048/sign=3b06d28fc91349547e1eef6462769358/d000baa1cd11728b22c9e62ccafcc3cec2fd2cd3.jpg";
         new Thread(){
             @Override
@@ -295,6 +294,7 @@ public class LuaActivity extends Activity implements OnClickListener {
                 });
             }
         }.start();
+
     }
 
     public void showText(){
@@ -333,28 +333,7 @@ public class LuaActivity extends Activity implements OnClickListener {
                 LuaActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-//                        mLuaState.LdoString(str);
-//                        mLuaState.getField(LuaState.LUA_GLOBALSINDEX, "getHttpFromJava");
-//                        mLuaState.pushString("get result from http ");
-//                        mLuaState.call(1, 1);
-//                        mLuaState.setField(LuaState.LUA_GLOBALSINDEX, "resultKey");
-//                        mLuaState.getGlobal("resultKey");
-//                        mDisplay.setText(mLuaState.toString(-1));
-                        BDNDLSupport support = new BDNDLSupport();
-                        support.setEngineMaxVersion(10);
-                        support.setEngineMinVersion(2);
-                        support.setOsMaxVersion(8);
-                        support.setOsMinVersion(3);
-
-
-
-                        BDNDLModuleInfo info = new BDNDLModuleInfo();
-                        info.setModuleName("luajava");
-                        info.setPackageUrl("hello");
-                        ImageView button = new ImageView(LuaActivity.this);
-//                        button.setImageDrawable();
-//                        button.setImageBitmap();
-//                        button.setBackgroundColor(Color.GREEN);
+//
                         try {
                         mLuaState.LdoString(str);
                         mLuaState.getField(LuaState.LUA_GLOBALSINDEX, "addButton");
@@ -366,9 +345,9 @@ public class LuaActivity extends Activity implements OnClickListener {
                             Drawable drawable =new BitmapDrawable(bitmap);
                         mLuaState.pushJavaObject(drawable);
                         mLuaState.pushJavaObject(bitmap);
-                        mLuaState.pushJavaObject(support);
+//                        mLuaState.pushJavaObject(support);
 //                            mLuaState.push
-                        mLuaState.call(5, 0);// 2个参数，0个返回值
+                        mLuaState.call(4, 0);// 2个参数，0个返回值
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
