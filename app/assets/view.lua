@@ -1,7 +1,3 @@
---
---require("dkjson")
---require("jsondata")
---require("log")
 
 ----------init class--------------
 local Color = luajava.newInstance("android.graphics.Color")
@@ -33,22 +29,11 @@ local categoryImageSize = getItemSize(80,scale)
 local divLineSize = 1
 
 local moreInfo = "more"
----------------init  table------------------
-
-fontSize = {
-    categoryTextSize = 20,
-    titleTextSize = 16,
-    subTitleTextSize = 14
-}
-fontColor = {
-
-
-}
-
-local titleTextSize = 16;
-local subTilteTextSize = 12;
+local categoryTitle = 20
+local titleTextSize = 18
+local subTilteTextSize = 16
 local defualtTitleColor = Color.BLACK
-local defualtSubTitleColor = Color.DGRAY
+local defualtSubTitleColor = Color.GRAY
 local defualtTitle = "标题"
 local specials = {"特价优惠大促销","海底捞","￥81","特价" }
 local titles = {"到店付","到店付五折起","每日惠","狂享折上折" }
@@ -56,27 +41,17 @@ local rectTitles = {"电影特惠","新客专享","舒适足疗","K歌钜惠","�
 local rectSubTitles = {"伦敦陷落","相叠加优惠","全场19起","立享折扣","7.5折起","新用户立减","门票3折起","最高免单" }
 local colorTitle = {Color.BLACK,Color.WHITE,Color.WHITE,
     Color.RED,Color.GREEN,Color.BLUE,Color.YELLOW,Color.MAGENTA}
-
--- 获取本地图片
+--
+---- 获取本地图片
 local icDrawables = {drawableClazz.ic_choose_title,drawableClazz.ic_specials,
     drawableClazz.ic_store_title,drawableClazz.ic_store_pic,
     drawableClazz.ic_daily_title,drawableClazz.ic_daily_pic,drawableClazz.icon_arrows_gray_right}
-
+local mainImg = icDrawables[6]
+local categoryOp = {"hotService","entertainment","hotService","meishiGroup"}
 
 local MARGIN = 0
 
---icon_name={choose="ic_choose_title",special="ic_special",store_title="ic_store_title",store_pic="ic_store_pic",daily_title="ic_daily_title",daily_pic="ic_daily_pic"}
-
-
-
-
--- 获取屏幕信息，尺寸比例，宽度，高度
-
-function showToast(str)
-
-     local Toast = luajava.bindClass("android.widget.Toast")
-    Toast:makeText(context,str.."", Toast.LENGTH_SHORT):show()
-end
+icon_name={choose="ic_choose_title",special="ic_special",store_title="ic_store_title",store_pic="ic_store_pic",daily_title="ic_daily_title",daily_pic="ic_daily_pic"}
 
 
 local function getScreen(context,_scale,_width,_height)
@@ -95,7 +70,7 @@ function parseColor(color)
     return ColorClazz:parseColor(color)
 end
 
----- add onClick listener
+-- add onClick listener
 local function onClick(context,view,str)
     local listener = luajava.createProxy("android.view.View$OnClickListener", {
 
@@ -120,62 +95,25 @@ function mainView(context,layout)
     horizontalViewTop:addView(t10NormalView(context,titles[1],colorTitle[4],titles[2],icDrawables[4]))
     horizontalViewTop:addView(t10NormalView(context,titles[3],colorTitle[5],titles[2],icDrawables[6]))
 
---    layout:addView(horizontalViewTop);
+    layout:addView(horizontalViewTop);
 
 end
 
 -- rectView
 function rectView(context,layout)
     obj, pos, err = json.decode (jsondata, 1, nil)
-    local baseInfo = {}
-    baseInfo.errno  = obj.errno
-    baseInfo.errmsg = obj.errmsg
-    baseInfo.msg    = obj.msg
-    baseInfo.cached = obj.cached
-    baseInfo.serverlogid  = obj.serverlogid
-    baseInfo.serverstatus = obj.serverstatus
-    baseInfo.timestamp    = obj.timestamp
-
-    local dataTable = {
-        activityGroup = obj.data.activityGroup,
-        banner_conf   = obj.data.banner_conf,
-        category      = obj.data.category,
-        daoDianfu     = obj.data.daoDianfu,
-        entertainment = obj.data.entertainment,
-        hotService    = obj.data.hotService,
-        meiRiBaoKuan  = obj.data.meiRiBaoKuan,
-        meishiGroup   = obj.data.meishiGroup,
-        nuomiAds      = obj.data.nuomiAds,
-        nuomiChannel  = obj.data.nuomiChannel,
-        nuomiNews     = obj.data.nuomiNews,
-        topten        = obj.data.topten,
-    }
-
---    writeFile("sdcard/lua/log.txt","hello world")
 
     local Toast = luajava.bindClass("android.widget.Toast")
-
---     local file = io.read("logger","")
---     file:write
 
     local type = obj.data.entertainment.listInfo
     local infoIndex = 1
     Toast:makeText(context,"rectView---"..type[infoIndex].title.."", Toast.LENGTH_SHORT):show()
---    parseBaseInfo(obj)
-    layout:addView(operationWithCategoryViewItem(context,true,6));
+--    layout:addView(operationWithCategoryViewItem(context,true,6));
 --    main(context);
 --    main();
 --    layout:addView(operationWithCategoryViewItem(context,true,7));
---    layout:addView(operationWithCategoryViewItem(context,true,8));
+    layout:addView(operationWithCategoryViewItem(context,true,8));
 end
-
-function writeFile(file_name,string)
-    local f = assert(io.open(file_name,'r'))
-    local content = f:read("*all")
---
-    f:close()
-end
-
 
 ---------- 添加的布局 -----------------
 function horizontalLinearLayout(context,width,height)
@@ -335,17 +273,37 @@ function t10NormalView(context,titleText,titleColor,subTitleText,mainImg)
 end
 
 --- 横向带有三个item的布局，1大2小
-function threeItemView(context,tab1,tab2,tab3)
+function threeItemView(context,_categoryType,_infoIndex)
+
+    --init data
+    local categoryType =_categoryType
+    if  categoryType == nil then
+        categoryType = "entertainment"
+    end
+    local typeInfo
+    -- 判断分类类别,休闲娱乐，精选服务，天天美食
+    if categoryType == "entertainment" then
+        typeInfo = obj.data.entertainment
+    elseif categoryType == "hotService" then
+        typeInfo = obj.data.hotService
+    elseif categoryType == "meishiGroup" then
+        typeInfo = obj.data.meishiGroup
+    else
+        typeInfo = obj.data.entertainment
+    end
+
+
+    local infoIndex = _infoIndex
+    local listInfo = typeInfo.listInfo
+
     local mainLayout = horizontalLinearLayout(context)
-    local verticalView = normalVerticalView(context,tab1[1],tab1[2],tab1[3],tab1[4])
+    local verticalView = normalVerticalView(context,categoryOp[1],1)
     local verticalLine = divLine(context,0,divLineSize, verticalItemHeight)
 
-
-
     local rightLayout = verticalLinearLayout(context)
-    local horizontalViewTop = normalHorizontalView(context,tab2[1],tab2[2],tab2[3],tab2[4])
+    local horizontalViewTop = normalHorizontalView(context,categoryOp[1],2)
     local horizontalLine = divLine(context,0,width/2-1 ,1)
-    local horizontalViewBottom = normalHorizontalView(context,tab3[1],tab3[2],tab3[3],tab3[4])
+    local horizontalViewBottom = normalHorizontalView(context,categoryOp[1],3)
 
 
     mainLayout:addView(verticalView)
@@ -359,78 +317,10 @@ function threeItemView(context,tab1,tab2,tab3)
 end
 
 --- 竖向item，标题，副标题，图片竖直排列
-function normalVerticalView(context,titleText,titleColor,subTitleText,mainImg)
-
-    local linearLayoutView = luajava.newInstance("android.widget.LinearLayout",context)
-    local layoutParamsClazz = luajava.bindClass("android.widget.LinearLayout$LayoutParams")
-    local layoutParams = luajava.newInstance("android.widget.LinearLayout$LayoutParams",layoutParamsClazz.MATCH_PARENT,layoutParamsClazz.MATCH_PARENT,1)
-    local gravityClazz = luajava.bindClass("android.view.Gravity")
-    local linearLayoutClazz = luajava.bindClass("android.widget.LinearLayout")
-
-    linearLayoutView:setOrientation(linearLayoutClazz.VERTICAL)
-    linearLayoutView:setGravity(gravityClazz.CENTER_HORIZONTAL)
-    linearLayoutView:setLayoutParams(layoutParams)
-    linearLayoutView:setBackgroundColor(Color.WHITE)
-
-
-    --  titlePic
-    --    local  titleIv = luajava.newInstance("android.widget.ImageView",context)
-    --    titleIv:setImageResource(titleImg)
-    local  titleTv = luajava.newInstance("android.widget.TextView",context)
-    titleTv:setPadding(leftMargin,0,0,0)
-    titleTv:setText(titleText)
-    titleTv:setTextSize(titleTextSize)
-    titleTv:setTextColor(titleColor)
-    local textPaint = titleTv:getPaint()
-    textPaint:setFakeBoldText(true)
-
-
-    --  subTitle
-    local  subTitleTv = luajava.newInstance("android.widget.TextView",context)
-    subTitleTv:setPadding(leftMargin,0,0,0)
-    subTitleTv:setText(subTitleText)
-    subTitleTv:setTextColor(Color.BLACK)
-
-    --  mainImg
---    local linearLayoutImgView = luajava.newInstance("android.widget.LinearLayout",context)
---    local layoutParamsImg = luajava.newInstance("android.widget.LinearLayout$LayoutParams",layoutParamsClazz.MATCH_PARENT,layoutParamsClazz.MATCH_PARENT)
---    layoutParamsImg.grativy = gravityClazz.CENTER_VERTICAL
---    linearLayoutImgView:setOrientation(linearLayoutClazz.VERTICAL)
---    linearLayoutImgView:setGravity(gravityClazz.BOTTOM)
---    linearLayoutImgView:setLayoutParams(layoutParamsImg)
-
-    local  mainIv = luajava.newInstance("android.widget.ImageView",context)
-    mainIv:setImageResource(mainImg)
-    local mainIvWidth = imageSize
-    local mainIvHeight = imageSize
-    local mainIvParams = luajava.newInstance("android.widget.LinearLayout$LayoutParams",mainIvWidth,mainIvHeight)
-    --    local BitmapFactory  = luajava.bindClass("android.graphics.BitmapFactory")
-    --    local bitmap = BitmapFactory.decodeFile(BitmapFactory,mainImg)
-    --    mainIv:setImageBitmap(bitmap)
-    mainIvParams.grativy = gravityClazz.CENTER
---    mainIv.setGrativy(gravityClazz.CENTER)
---    linearLayoutImgView:addView(mainIv,mainIvParams)
-    --add view
-    linearLayoutView:addView(titleTv)
-    linearLayoutView:addView(subTitleTv)
-    linearLayoutView:addView(mainIv,mainIvParams)
---    linearLayoutView:addView(linearLayoutImgView,layoutParamsImg)
-
-    onClick(context,linearLayoutView,titleText)
-
-    return linearLayoutView
-end
-
----横向item  标题、副标题竖向，图片横向排列
----   TODO   tag 和 image布局
-function normalHorizontalView(context,titleText,titleColor,subTitleText,mainImg,lableText)
-    local margin = leftMargin
-    local layoutHeight = horizontalItemHeight
-    local layoutwidth = width / 2
-
+function normalVerticalView(context,_categoryType,_infoIndex)
 
     --init data
-    local categoryType
+    local categoryType =_categoryType
     if  categoryType == nil then
         categoryType = "entertainment"
     end
@@ -441,16 +331,124 @@ function normalHorizontalView(context,titleText,titleColor,subTitleText,mainImg,
     elseif categoryType == "hotService" then
         typeInfo = obj.data.hotService
     elseif categoryType == "meishiGroup" then
-        typeInfo = obj.data.hotService
+        typeInfo = obj.data.meishiGroup
     else
         typeInfo = obj.data.entertainment
     end
 
 
-    local infoIndex = 1
+    local infoIndex = _infoIndex
     local listInfo = typeInfo.listInfo
-        local Toast = luajava.bindClass("android.widget.Toast")
-        Toast:makeText(context,"normalHorizontalView -- "..string.len(listInfo[infoIndex].titleColor).."", Toast.LENGTH_SHORT):show()
+--    local Toast = luajava.bindClass("android.widget.Toast")
+--    Toast:makeText(context,"normalVerticalView -- "..string.len(listInfo[infoIndex].titleColor).."", Toast.LENGTH_SHORT):show()
+
+    local linearLayoutView = luajava.newInstance("android.widget.LinearLayout",context)
+    local layoutParamsClazz = luajava.bindClass("android.widget.LinearLayout$LayoutParams")
+    local layoutParams = luajava.newInstance("android.widget.LinearLayout$LayoutParams",layoutParamsClazz.MATCH_PARENT,layoutParamsClazz.MATCH_PARENT,1)
+    local gravityClazz = luajava.bindClass("android.view.Gravity")
+    local linearLayoutClazz = luajava.bindClass("android.widget.LinearLayout")
+
+    linearLayoutView:setOrientation(linearLayoutClazz.VERTICAL)
+    linearLayoutView:setGravity(gravityClazz.CENTER_HORIZONTAL)
+    linearLayoutView:setLayoutParams(layoutParams)
+    if string.len(listInfo[infoIndex].backgroundColor) ~= 0 then
+        linearLayoutView:setBackgroundColor(ColorClazz:parseColor(listInfo[infoIndex].backgroundColor))
+    else
+        linearLayoutView:setBackgroundColor(Color.WHITE)
+    end
+
+    --  title
+    local  titleTv = luajava.newInstance("android.widget.TextView",context)
+    titleTv:setPadding(leftMargin,0,0,0)
+    if string.len(listInfo[infoIndex].title) ~= 0 then
+        titleTv:setText(listInfo[infoIndex].title)
+    else
+        titleTv:setText(defualtTitle)
+    end
+    titleTv:setTextSize(titleTextSize)
+    if string.len(listInfo[infoIndex].titleColor) ~= 0 then
+        titleTv:setTextColor(ColorClazz:parseColor(listInfo[infoIndex].titleColor))
+    else
+        titleTv:setTextColor(defualtTitleColor)
+    end
+    local textPaint = titleTv:getPaint()
+    textPaint:setFakeBoldText(true)
+
+
+    ----      subTitle
+    local  subTitleTv = luajava.newInstance("android.widget.TextView",context)
+    subTitleTv:setPadding(leftMargin,0,0,0)
+    if string.len(listInfo[infoIndex].subtitle) ~= 0 then
+        subTitleTv:setText(listInfo[infoIndex].subtitle)
+    else
+        subTitleTv:setText(defualtTitle)
+    end
+
+    if string.len(listInfo[infoIndex].subtitleColor) ~= 0 then
+        subTitleTv:setTextColor(ColorClazz:parseColor(listInfo[infoIndex].subtitleColor))
+    else
+        subTitleTv:setTextColor(defualtSubTitleColor)
+    end
+
+    ----  mainImg
+    local linearLayoutImgView = luajava.newInstance("android.widget.LinearLayout",context)
+    local layoutParamsImg = luajava.newInstance("android.widget.LinearLayout$LayoutParams",layoutParamsClazz.MATCH_PARENT,layoutParamsClazz.MATCH_PARENT)
+    layoutParamsImg.grativy = gravityClazz.CENTER_VERTICAL
+    linearLayoutImgView:setOrientation(linearLayoutClazz.VERTICAL)
+    linearLayoutImgView:setGravity(gravityClazz.BOTTOM)
+    linearLayoutImgView:setLayoutParams(layoutParamsImg)
+
+    local  mainIv = luajava.newInstance("android.widget.ImageView",context)
+    mainIv:setImageResource(mainImg)
+    local mainIvWidth = imageSize
+    local mainIvHeight = imageSize
+    local mainIvParams = luajava.newInstance("android.widget.LinearLayout$LayoutParams",mainIvWidth,mainIvHeight)
+    --    local BitmapFactory  = luajava.bindClass("android.graphics.BitmapFactory")
+    --    local bitmap = BitmapFactory.decodeFile(BitmapFactory,mainImg)
+    --    mainIv:setImageBitmap(bitmap)
+    mainIvParams.grativy = gravityClazz.CENTER
+--    linearLayoutImgView:addView(mainIv,mainIvParams)
+    --add view
+    linearLayoutView:addView(titleTv)
+    linearLayoutView:addView(subTitleTv)
+    linearLayoutView:addView(mainIv,mainIvParams)
+--    linearLayoutView:addView(linearLayoutImgView,layoutParamsImg)
+
+    onClick(context,linearLayoutView,listInfo[infoIndex].link)
+
+    return linearLayoutView
+end
+
+---横向item  标题、副标题竖向，图片横向排列
+---   TODO   tag 和 image布局
+function normalHorizontalView(context,_categoryType,_infoIndex)
+    local margin = leftMargin
+    local layoutHeight = horizontalItemHeight
+    local layoutwidth = width / 2
+
+
+    --init data
+    local categoryType =_categoryType
+    if  categoryType == nil then
+        categoryType = "entertainment"
+    end
+    local typeInfo
+    -- 判断分类类别,休闲娱乐，精选服务，天天美食
+    if categoryType == "entertainment" then
+        typeInfo = obj.data.entertainment
+    elseif categoryType == "hotService" then
+        typeInfo = obj.data.hotService
+    elseif categoryType == "meishiGroup" then
+        typeInfo = obj.data.meishiGroup
+    else
+        typeInfo = obj.data.entertainment
+    end
+
+
+    local infoIndex = _infoIndex
+    local listInfo = typeInfo.listInfo
+--        local Toast = luajava.bindClass("android.widget.Toast")
+--        Toast:makeText(context,"normalHorizontalView -- "..string.len(listInfo[infoIndex].titleColor).."", Toast.LENGTH_SHORT):show()
 
     local relativeLayoutView = luajava.newInstance("android.widget.RelativeLayout",context)
     local layoutParamsClazz = luajava.bindClass("android.widget.RelativeLayout$LayoutParams")
@@ -490,15 +488,11 @@ function normalHorizontalView(context,titleText,titleColor,subTitleText,mainImg,
     titleTv:setId(titleTvId)
 
     local titleParams = luajava.newInstance("android.widget.RelativeLayout$LayoutParams",layoutParamsClazz.WRAP_CONTENT,layoutParamsClazz.WRAP_CONTENT)
---    titleParams:addRule(relativeLayoutClazz.ALIGN_PARENT_TOP)
     titleParams:setMargins(margin,0,0,0)
     --
     --
     --  subTitle
     local  subTitleTv = luajava.newInstance("android.widget.TextView",context)
---    subTitleTv:setText(listInfo[infoIndex].subtitle)
---    --    subTitleTv:setTextSize(subTitleTextSize)
---    subTitleTv:setTextColor(Color.DKGRAY)
     if string.len(listInfo[infoIndex].subtitle) ~= 0 then
         subTitleTv:setText(listInfo[infoIndex].subtitle)
     else
@@ -508,7 +502,7 @@ function normalHorizontalView(context,titleText,titleColor,subTitleText,mainImg,
     if string.len(listInfo[infoIndex].subtitleColor) ~= 0 then
         subTitleTv:setTextColor(ColorClazz:parseColor(listInfo[infoIndex].subtitleColor))
     else
-        subTitleTv:setTextColor(defualtTitleColor)
+        subTitleTv:setTextColor(defualtSubTitleColor)
     end
     local subTitleTvId = titleTvId + 1
     subTitleTv:setId(subTitleTvId)
@@ -727,7 +721,7 @@ function operationWithCategoryViewItem(context,showCategory,viewSize)
     -- categoryTitle 默认显示
     if showCategory == true then
         local categoryTitleView = horizontalLinearLayout(context)
-        categoryTitleView:addView(categoryTitle(context,"天天美味",icDrawables[6],rectTitles[1],colorTitle[4],rectSubTitles[1],colorTitle[4]))
+        categoryTitleView:addView(categoryTitle(context,categoryOp[1],1))
         verticalLinearLayout:addView(categoryTitleView);
 
     end
@@ -736,42 +730,39 @@ function operationWithCategoryViewItem(context,showCategory,viewSize)
     if isNumber and viewSize == 6 then
         -- top
         local horizontalViewTop = horizontalLinearLayout(context)
-        horizontalViewTop:addView(normalHorizontalView(context,rectTitles[1],colorTitle[4],rectSubTitles[1],icDrawables[6],"特价"))
+        horizontalViewTop:addView(normalHorizontalView(context,categoryOp[1],1))
         horizontalViewTop:addView(divLine(context,0,divLineSize,horizontalItemHeight))
-        horizontalViewTop:addView(normalHorizontalView(context,rectTitles[2],colorTitle[5],rectSubTitles[2],icDrawables[6]))
+        horizontalViewTop:addView(normalHorizontalView(context,categoryOp[1],2))
         verticalLinearLayout:addView(horizontalViewTop);
     elseif isNumber and viewSize == 7  then
         -- threeViewItem
-        local tab1={rectTitles[1],colorTitle[1],rectSubTitles[1],icDrawables[6]}
-        local tab2={rectTitles[1],colorTitle[1],rectSubTitles[1],icDrawables[6],rectSubTitles[1]}
-        local tab3={rectTitles[1],colorTitle[1],rectSubTitles[1],icDrawables[6]}
-        local threeView = threeItemView(context,tab1,tab2,tab3)
+
+        local threeView = threeItemView(context, categoryOp[1])
         verticalLinearLayout:addView(threeView)
     elseif isNumber and viewSize == 8 then
         -- middle1
         local horizontalViewMiddle1 = horizontalLinearLayout(context)
-        horizontalViewMiddle1:addView(normalHorizontalView(context,rectTitles[1],colorTitle[4],rectSubTitles[1],icDrawables[6],"特价"))
+        horizontalViewMiddle1:addView(normalHorizontalView(context,categoryOp[1],1))
         horizontalViewMiddle1:addView(divLine(context,0,divLineSize,horizontalItemHeight))
-        horizontalViewMiddle1:addView(normalHorizontalView(context,rectTitles[2],colorTitle[5],rectSubTitles[2],icDrawables[6]))
+        horizontalViewMiddle1:addView(normalHorizontalView(context,categoryOp[1],1))
         verticalLinearLayout:addView(horizontalViewMiddle1);
         -- middle2
         local horizontalViewMiddle2 = horizontalLinearLayout(context)
-        horizontalViewMiddle2:addView(normalHorizontalView(context,rectTitles[3],colorTitle[6],rectSubTitles[3],icDrawables[6]))
+        horizontalViewMiddle2:addView(normalHorizontalView(context,categoryOp[1],1))
         horizontalViewMiddle2:addView(divLine(context,0,divLineSize,horizontalItemHeight))
-        horizontalViewMiddle2:addView(normalHorizontalView(context,rectTitles[4],colorTitle[7],rectSubTitles[4],icDrawables[6]))
+        horizontalViewMiddle2:addView(normalHorizontalView(context,categoryOp[1],1))
         verticalLinearLayout:addView(horizontalViewMiddle2);
     end
 
     -- bottom
     local horizontalViewBottom = horizontalLinearLayout(context)
-    horizontalViewBottom:addView(normalVerticalView(context,rectTitles[5],colorTitle[1],rectSubTitles[5],icDrawables[6]))
+    horizontalViewBottom:addView(normalVerticalView(context,categoryOp[1],3))
     horizontalViewBottom:addView(divLine(context,0,divLineSize,verticalItemHeight))
-    horizontalViewBottom:addView(normalVerticalView(context,rectTitles[6],colorTitle[2],rectSubTitles[6],icDrawables[6]))
+    horizontalViewBottom:addView(normalVerticalView(context,categoryOp[1],4))
     horizontalViewBottom:addView(divLine(context,0,divLineSize, verticalItemHeight))
-    horizontalViewBottom:addView(normalVerticalView(context,rectTitles[7],colorTitle[7],rectSubTitles[7],icDrawables[6]))
+    horizontalViewBottom:addView(normalVerticalView(context,categoryOp[1],5))
     horizontalViewBottom:addView(divLine(context,0,divLineSize,verticalItemHeight))
-    horizontalViewBottom:addView(normalVerticalView(context,rectTitles[8],colorTitle[4],rectSubTitles[8],icDrawables[6]))
-
+    horizontalViewBottom:addView(normalVerticalView(context,categoryOp[1],6))
     verticalLinearLayout:addView(divLine(context,0,width,1));
     verticalLinearLayout:addView(horizontalViewBottom);
     return verticalLinearLayout
